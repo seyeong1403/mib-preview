@@ -148,29 +148,30 @@
   }
 
   /* ---------- ④ 스와이퍼 (원본 파라미터 이식) ---------- */
-  var bizSwipers = {};
-  if (window.Swiper) {
-    document.querySelectorAll('.business-swiper').forEach(function (el) {
-      var id = el.dataset.wrap;
-      bizSwipers[id] = new Swiper(el.querySelector('.swiper'), {
-        slidesPerView: 'auto',
-        spaceBetween: 30,
-        freeMode: true,
-        slidesOffsetAfter: 50,
-        observer: true,
-        observeParents: true,
-        scrollbar: { el: el.querySelector('.swiper-scrollbar'), hide: false, draggable: true, snapOnRelease: false }
+  /* 사업분야 마퀴: 슬라이드 세트를 복제해 linear infinite로 계속 흐름 (호버 시 정지) */
+  var GAP = 30, SPEED = 70; /* px/s */
+  function setupMarquee(el) {
+    var wrap = el.querySelector('.swiper-wrapper');
+    if (!wrap || wrap.dataset.marquee) return;
+    var setW = wrap.scrollWidth;
+    if (!setW) return; /* display:none 상태 — 활성화 때 다시 */
+    setW += GAP;
+    var originals = Array.prototype.slice.call(wrap.children);
+    var container = el.querySelector('.swiper').getBoundingClientRect().width || 1200;
+    while (wrap.scrollWidth < setW + container + 100) {
+      originals.forEach(function (s) {
+        var c = s.cloneNode(true);
+        c.setAttribute('aria-hidden', 'true');
+        wrap.appendChild(c);
       });
-    });
-
-    new Swiper('.event-slide .swiper', {
-      slidesPerView: 3,
-      centeredSlides: true,
-      spaceBetween: 30,
-      initialSlide: 5,
-      navigation: { nextEl: '.event-nav .nextBtn', prevEl: '.event-nav .prevBtn' },
-      breakpoints: { 0: { slidesPerView: 1, centeredSlides: true }, 769: { slidesPerView: 3, centeredSlides: true } }
-    });
+    }
+    wrap.style.setProperty('--set-w', setW + 'px');
+    wrap.style.setProperty('--marquee-dur', (setW / SPEED) + 's');
+    wrap.classList.add('marquee');
+    wrap.dataset.marquee = '1';
+  }
+  if (window.Swiper) {
+    setupMarquee(document.querySelector('.business-swiper.active'));
 
     new Swiper('.news-swiper .swiper', {
       slidesPerView: 'auto',
@@ -183,11 +184,12 @@
 
   /* 사업분야 탭 (원본: 탭 클릭 → 스와이퍼 표시 전환 + slideTo(0) + 배경 교체) */
   var bgLayer = document.querySelector('.business-bg');
+  /* 누끼 도입 후 밝은 제품사진 배경은 대비가 무너져 다크 팹 사진으로 통일 (2026-08-28) */
   var bgImages = [
-    'images/products/web/1.jpg',
-    'images/products/web/5.jpg',
-    'images/products/web/8.jpg',
-    'images/products/web/15.jpg',
+    'images/company/hero-fab.jpg',
+    'images/company/hero-fab.jpg',
+    'images/company/hero-fab.jpg',
+    'images/company/hero-fab.jpg',
     'images/company/hero-fab.jpg',
     'images/company/hero-fab.jpg'
   ];
@@ -204,7 +206,7 @@
     document.querySelectorAll('.business-swiper').forEach(function (el) {
       var on = el.dataset.wrap === idx;
       el.classList.toggle('active', on);
-      if (on && bizSwipers[idx]) { bizSwipers[idx].update(); bizSwipers[idx].slideTo(0); }
+      if (on) setupMarquee(el);
     });
     bgLayer.style.backgroundImage = 'url(' + bgImages[+idx] + ')';
   }

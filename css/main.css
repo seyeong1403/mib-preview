@@ -1,8 +1,8 @@
 /* ============================================================
    MIB 엠아이비 — main.css (v2: worldpanasia.com 실측 이식)
    레이아웃·모션·수치 = 파나시아 실측값 그대로
-   컬러 매핑: 글자 포인트 #0089CF → 네이비 #16304A
-             채움 포인트 #0089CF → 옐로 #F2C200 (MIB 카탈로그)
+   포인트 컬러: 푸른색 #0089CF (2026-08-28 지시 — 옐로/네이비 매핑 폐기)
+   폰트: Pretendard 전면 적용(2026-08-28) · CTA는 알약형
    ============================================================ */
 
 /* ---------- 토큰 ---------- */
@@ -21,9 +21,10 @@
   --bg-foot: #F9F9F9;           /* 푸터 배경 실측 #F9F9F9 */
   --bg-word: #FAF7FA;           /* 배경 워드 텍스트 실측 #FAF7FA */
 
-  /* MIB 브랜드 매핑 */
-  --point-text: #16304A;        /* 파나시아 #0089CF 글자 자리 */
-  --point-fill: #F2C200;        /* 파나시아 #0089CF 채움 자리 */
+  /* 포인트 컬러: 푸른색 (2026-08-28 지시, 파나시아 실측 #0089CF 채택) */
+  --point-text: #0089CF;        /* 글자·보더 포인트 */
+  --point-fill: #0089CF;        /* 채움 포인트 (바·언더라인·드래그) */
+  --point-on-dark: #5BB8EC;     /* 다크 배경 위 포인트 글자 틴트 */
   --navy-deep: #0A1826;
 }
 
@@ -33,8 +34,8 @@ html { scroll-behavior: auto; }
 html.no_scroll, body.no_scroll { overflow: hidden; }
 
 body {
-  /* 파나시아 실측: NanumSquare / 16px / lh 1.47 */
-  font-family: NanumSquare, "Noto Sans KR", sans-serif;
+  /* 파나시아 실측 스케일 유지, 서체는 Pretendard로 전면 교체 (2026-08-28 지시) */
+  font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", sans-serif;
   font-size: 16px;
   line-height: 1.47;
   color: var(--ink);
@@ -63,6 +64,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   height: 37px; padding: 0 32px;
   border: 1px solid var(--point-text); color: var(--point-text);
   font-size: 15px; background: transparent;
+  border-radius: 999px;               /* CTA 알약형 (2026-08-28 지시) */
   transition: background .25s, color .25s;
   cursor: pointer;
 }
@@ -107,7 +109,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .subMenu { display: flex; align-items: center; gap: 18px; }
 .subMenu .contact-link {
   font-size: 15px; font-weight: 700; color: #fff; background: var(--point-text);
-  padding: 8px 20px; transition: opacity .2s;
+  padding: 9px 22px; border-radius: 999px;   /* CTA 알약형 */
+  transition: opacity .2s;
 }
 .subMenu .contact-link:hover { opacity: .85; }
 
@@ -134,7 +137,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 #headerY > * { pointer-events: auto; }
 /* 실측: 세로쓰기 18px, opacity .2, top 140 */
 #headerY .txt {
-  font-family: Saira, NanumSquare, sans-serif;
+  font-family: inherit;
   font-size: 18px; opacity: .2; letter-spacing: .3px;
   writing-mode: vertical-rl; transform: rotate(180deg);
   position: absolute; top: 140px;
@@ -156,7 +159,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .allMenuWrap .allMenu { display: flex; gap: 110px; }
 .allMenuWrap .dep1 { font-size: 30px; font-weight: 800; margin-bottom: 26px; }
 .allMenuWrap .dep2 a { display: block; padding: 7px 0; font-size: 17px; color: rgba(255,255,255,.65); transition: color .2s; }
-.allMenuWrap .dep2 a:hover { color: var(--point-fill); }
+.allMenuWrap .dep2 a:hover { color: var(--point-on-dark); }
 .allMenuWrap .closeBtn { position: absolute; top: 40px; right: 48px; width: 40px; height: 40px; }
 .allMenuWrap .closeBtn::before, .allMenuWrap .closeBtn::after {
   content: ""; position: absolute; left: 4px; right: 4px; top: 50%; height: 2px; background: #fff;
@@ -176,11 +179,6 @@ section.visual#mv-ix {
 /* 실측: 20px / 300 / #606060 / mt 22 */
 #mv-ix .tit__des { font-size: 20px; font-weight: 300; color: var(--gray-600); line-height: 130%; margin-top: 22px; }
 
-/* 실측: rotate_box 116px, top -20 right 0, 10s linear 회전 */
-#mv-ix .rotate_box { position: absolute; top: -20px; right: 0; width: 116px; height: 117px; }
-#mv-ix .rotate_box .snow { width: 116px; animation: mibRotate 10s linear infinite; }
-#mv-ix .rotate_box .wave { position: absolute; left: -46px; bottom: 6px; }
-@keyframes mibRotate { to { transform: rotate(360deg); } }
 
 /* 실측: wrap 40vh / box 100%x40vh radius 214 absolute 중앙, 트랜지션 시퀀스 그대로 */
 /* 실측: wrap 1400 중앙 (s-inner), 높이 40vh */
@@ -259,13 +257,14 @@ section.visual#mv-ix {
 }
 .business-bg {
   position: absolute; inset: 0; background-size: cover; background-position: center;
-  filter: brightness(.42); transition: background-image .3s;
+  filter: brightness(.3);          /* 제품 대비 강화 (2026-08-28) */
+  transition: background-image .3s;
 }
 .main-con2 .container { position: relative; z-index: 2; height: 100%; }
 .main-con2 .container .inner {
   opacity: 0; display: flex; flex-direction: column; justify-content: center; height: 100%;
 }
-.main-con2 .bluetext { color: var(--point-fill); margin-bottom: 10px; }
+.main-con2 .bluetext { color: #fff; margin-bottom: 10px; }  /* 실측: 다크 위 아이브로 흰색 */
 /* 실측: 다크 타이틀 50/900 흰색 */
 .main-con2 .txt2 { font-weight: 900; color: #fff; margin-bottom: 48px; }
 
@@ -286,25 +285,39 @@ section.visual#mv-ix {
 /* 실측: 슬라이드 496px, pad 30 25, bg rgba(255,255,255,.18) */
 .business-swiper .swiper-slide {
   width: 496px; height: 453px; padding: 30px 25px;
-  background: rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .16);
+  backdrop-filter: blur(14px);          /* 프로스트 블러: 배경 디테일 차단 → 제품이 또렷하게 */
+  -webkit-backdrop-filter: blur(14px);
 }
 .business-swiper .swiper-slide .title { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 14px; }
 .business-swiper .swiper-slide .dsec { font-size: 16px; line-height: 24px; color: #fff; opacity: .9; min-height: 72px; }
 .business-swiper .swiper-slide .img-banner { margin-top: 18px; height: 240px; overflow: hidden; }
 .business-swiper .swiper-slide .img-banner img { width: 100%; height: 100%; object-fit: cover; }
-.business-swiper .swiper-scrollbar {
-  position: relative; margin-top: 30px; height: 3px; background: rgba(255,255,255,.25); border-radius: 0;
+/* 마퀴 모션: 복제 세트 + linear infinite (2026-08-28) */
+.business-swiper .swiper-scrollbar { display: none; }
+.business-swiper .swiper { overflow: hidden; }
+.business-swiper .swiper-wrapper { display: flex; gap: 30px; width: max-content; }
+.business-swiper .swiper-slide { flex-shrink: 0; }
+.business-swiper .swiper-wrapper.marquee { animation: bizMarquee var(--marquee-dur, 30s) linear infinite; }
+.business-swiper .swiper-wrapper.marquee:hover { animation-play-state: paused; }
+@keyframes bizMarquee { to { transform: translateX(calc(-1 * var(--set-w))); } }
+@media (prefers-reduced-motion: reduce) {
+  .business-swiper .swiper-wrapper.marquee { animation: none; }
 }
-/* 실측: 스크롤바 드래그 = 포인트 채움색 */
-.business-swiper .swiper-scrollbar-drag { background: var(--point-fill); border-radius: 0; }
 
 /* ---------- main-con3 (실측: 풀블리드 flex, 좌 이미지 clipPath 와이프 / 우 542 박스) ---------- */
 .main-con3 { width: 100%; }
 .main-con3 .inner3 { display: flex; align-items: center; }
 .main-con3 .left { width: 50%; flex-shrink: 0; }
-.main-con3 .left .list li { overflow: hidden; }
+.main-con3 .left .list li {
+  overflow: hidden; background: #F2F4F6; height: 300px;
+  display: flex; align-items: center; justify-content: center;
+}
 .main-con3 .left .list li + li { margin-top: 10px; }
-.main-con3 .left .list li img { width: 100%; height: 300px; object-fit: cover; }
+.main-con3 .left .list li img {
+  width: auto; height: auto; max-width: 64%; max-height: 74%; object-fit: contain;
+  filter: drop-shadow(0 18px 20px rgba(10, 24, 38, .16));
+}
 .main-con3 .right { width: 50%; display: flex; justify-content: center; }
 .main-con3 .right-box { width: 542px; max-width: calc(100% - 96px); }
 .main-con3 .right-box .bluetext { margin-bottom: 12px; }
@@ -320,35 +333,33 @@ section.visual#mv-ix {
 .main-con3 .link-list a:hover { color: var(--point-text); padding-left: 14px; }
 .main-con3 .link-list a:hover::after { color: var(--point-text); transform: translateX(4px); }
 
-/* ---------- main-con4 (실측: pt150 pb100, 3장 센터 슬라이더 370x448) ---------- */
+/* ---------- main-con4 연혁 (DB 213 Cnuh 큰 연도·챕터 + 씨엠티엑스 타임라인 조합, 2026-08-28) ---------- */
 .main-con4 { padding: 150px 0 100px; }
 .main-con4 .bluetext { margin-bottom: 6px; }
 .main-con4 .title-wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 59px; }
-.event-slide { position: relative; }
-.event-slide .swiper { overflow: hidden; }
-.event-slide .swiper-slide { width: 370px; }
-.event-slide .card {
-  height: 448px; border: 1px solid #eaeaea; padding: 44px 36px;
-  display: flex; flex-direction: column;
-  transition: transform .3s, box-shadow .3s;
-  background: #fff;
+.histWrap { display: grid; grid-template-columns: 440px 1fr; gap: 90px; align-items: stretch; }
+.histPhoto { position: relative; overflow: hidden; }
+.histPhoto img { width: 100%; height: 100%; min-height: 480px; object-fit: cover; }
+.histPhoto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,15,26,0) 45%, rgba(6,15,26,.66) 100%); }
+.histPhoto .histSince {
+  position: absolute; left: 30px; bottom: 24px; z-index: 2; color: #fff;
+  font-size: 15px; font-weight: 600; letter-spacing: .14em;
 }
-.event-slide .swiper-slide-active .card { box-shadow: 0 18px 44px rgba(0,0,0,.08); transform: translateY(-6px); }
-/* 태그: 실측 gray-tag(지난) / 채움 포인트(현재) */
-.event-slide .tag {
-  display: inline-block; align-self: flex-start; font-size: 13px; font-weight: 700; padding: 5px 12px; margin-bottom: 24px;
-  background: #eee; color: var(--gray-777);
+.histPhoto .histSince strong { display: block; font-size: 46px; font-weight: 800; letter-spacing: 0; line-height: 1.1; }
+.histLine { border-left: 2px solid #e4e8ec; }
+.histLine > li { position: relative; padding: 0 0 44px 44px; }
+.histLine > li:last-child { padding-bottom: 0; }
+.histLine > li::before {
+  content: ""; position: absolute; left: -7px; top: 12px; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--point-fill); box-shadow: 0 0 0 4px rgba(0, 137, 207, .18);
 }
-.event-slide .tag.point { background: var(--point-fill); color: var(--navy-deep); }
-.event-slide .year { font-size: 44px; font-weight: 800; color: var(--point-text); margin-bottom: 18px; }
-.event-slide .title { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
-.event-slide .desc { font-size: 16px; color: var(--gray-600); line-height: 1.6; }
-.event-slide .nav-btns { display: flex; gap: 10px; }
-.event-slide .nav-btns button {
-  width: 44px; height: 44px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center;
-  transition: background .2s, border-color .2s, color .2s;
+.histLine .year { font-size: 38px; font-weight: 800; line-height: 1; color: var(--point-text); margin-bottom: 14px; }
+.histLine > li.now .year { color: var(--ink); }
+.histLine > li.now::before { background: var(--navy-deep); box-shadow: 0 0 0 4px rgba(10,24,38,.14); }
+.histLine ul li {
+  font-size: 17px; color: var(--ink-700, #2b3440); padding: 4px 0 4px 16px; position: relative; line-height: 1.6;
 }
-.event-slide .nav-btns button:hover { background: var(--point-text); border-color: var(--point-text); color: #fff; }
+.histLine ul li::before { content: ""; position: absolute; left: 0; top: 17px; width: 7px; height: 2px; background: var(--point-fill); }
 
 /* ---------- main-con5 (실측: pt150 pb150, 카드 394 가로 슬라이더) ---------- */
 .main-con5 { padding: 150px 0 150px; }
@@ -424,7 +435,6 @@ section.visual#mv-ix {
   #mv-ix .tit-box { width: 90%; height: auto; }
   #mv-ix .tit__header { font-size: 34px; line-height: 120%; }
   #mv-ix .tit__des { font-size: 14px; margin-top: 10px; }
-  #mv-ix .rotate_box { display: none; }
   .mv-ix_visual_wrap { height: 30vh; }
   .mv-ix_visual_box { height: 30vh; border-radius: 11px; }
   .txt-wrap .txt-video__tit { font-size: 34px; line-height: 120%; }
@@ -458,8 +468,9 @@ section.visual#mv-ix {
 
   .main-con4 { padding: 90px 0 60px; }
   .main-con4 .title-wrap { flex-direction: column; align-items: flex-start; }
-  .event-slide .swiper-slide { width: 300px; }
-  .event-slide .card { height: 380px; padding: 32px 26px; }
+  .histWrap { grid-template-columns: 1fr; gap: 40px; }
+  .histPhoto img { min-height: 260px; height: 260px; }
+  .histLine .year { font-size: 30px; }
 
   .main-con5 { padding: 90px 0; }
   .news-swiper .swiper-slide { width: 300px; }
@@ -472,3 +483,24 @@ section.visual#mv-ix {
 @media (min-width: 1024px) {
   .mobileMenuBtn { display: none; }
 }
+
+/* ---------- 제품 누끼 슬롯 (2026-08-28 지시: 원본 사진 대신 컷 이미지) ---------- */
+.business-swiper .swiper-slide .img-banner.cutbox {
+  display: flex; align-items: center; justify-content: center; padding: 12px 0;
+}
+.business-swiper .swiper-slide .img-banner.cutbox img {
+  width: auto; height: auto; max-width: 88%; max-height: 100%; object-fit: contain;
+  filter: drop-shadow(0 22px 22px rgba(0, 0, 0, .38));
+}
+.news-swiper .img-banner.cutbox {
+  background: #F2F4F6; display: flex; align-items: center; justify-content: center;
+}
+.news-swiper .img-banner.cutbox img {
+  width: auto; height: auto; max-width: 72%; max-height: 68%; object-fit: contain;
+  filter: drop-shadow(0 16px 18px rgba(10, 24, 38, .18));
+  transition: transform .4s;
+}
+.main-con1 .about-visual.cutbox {
+  background: #F2F4F6; display: flex; align-items: center; justify-content: center; height: 506px;
+}
+.main-con1 .about-visual.cutbox img { width: auto; height: auto; max-width: 78%; max-height: 70%; object-fit: contain; filter: drop-shadow(0 20px 22px rgba(10,24,38,.16)); }
