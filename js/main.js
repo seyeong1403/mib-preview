@@ -72,11 +72,31 @@
     document.body.classList.remove('no_scroll');
     box.style.top = '-' + Math.round(wrap.getBoundingClientRect().top + window.scrollY) + 'px';
   } else {
+    /* 트랙패드는 휠 델타가 1~10px로 작아 단일 이벤트 임계(20)로는 절대 안 열림
+       → 400ms 윈도로 누적해 판정 (스크롤 멈춤 버그 수정, 2026-08-28) */
+    var wheelAcc = 0, wheelAccTimer = null;
     mv.addEventListener('wheel', function (e) {
       if (isLocking) return;
-      if (e.deltaY > 20) openVisual();
-      else if (e.deltaY < -20) closeVisual();
+      wheelAcc += e.deltaY;
+      clearTimeout(wheelAccTimer);
+      wheelAccTimer = setTimeout(function () { wheelAcc = 0; }, 400);
+      if (wheelAcc > 20) { wheelAcc = 0; openVisual(); }
+      else if (wheelAcc < -20) { wheelAcc = 0; closeVisual(); }
     }, { passive: true });
+
+    /* 키보드 사용자도 히어로를 열 수 있게 */
+    document.addEventListener('keydown', function (e) {
+      if (isLocking) return;
+      if (['ArrowDown', 'PageDown', ' ', 'End'].indexOf(e.key) !== -1) openVisual();
+    });
+
+    /* 안전장치: 스크롤이 내려가 있는데 잠금이 남아 있으면 해제 (비정상 상태 복구) */
+    setInterval(function () {
+      if (window.scrollY > 10 && document.body.classList.contains('no_scroll')) {
+        document.documentElement.classList.remove('no_scroll');
+        document.body.classList.remove('no_scroll');
+      }
+    }, 1500);
 
     mv.addEventListener('touchstart', function (e) { touchStartY = e.touches[0].clientY; }, { passive: true });
     mv.addEventListener('touchmove', function (e) {
@@ -173,13 +193,31 @@
   if (window.Swiper) {
     setupMarquee(document.querySelector('.business-swiper.active'));
 
-    new Swiper('.news-swiper .swiper', {
+    /* 수행분야: 연속 흐름(오토플레이 linear) + 화살표 빠른 점프 (2026-08-28 지시) */
+    var newsSwiper = new Swiper('.news-swiper .swiper', {
       slidesPerView: 'auto',
       spaceBetween: 30,
-      freeMode: true,
-      slidesOffsetAfter: 50,
-      scrollbar: { el: '.news-scrollbar', hide: false, draggable: true, snapOnRelease: false }
+      loop: true,
+      loopAdditionalSlides: 6,
+      speed: 6000,
+      autoplay: reduceMotion ? false : { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
+      observer: true,
+      observeParents: true
     });
+    var newsNav = document.querySelector('.newsNav');
+    if (newsNav && newsSwiper) {
+      /* 마퀴는 항상 전환 중이라 animating 플래그를 끊어야 클릭이 무시되지 않음 */
+      newsNav.querySelector('.nextBtn').addEventListener('click', function () {
+        newsSwiper.animating = false;
+        newsSwiper.slideNext(350);
+        if (newsSwiper.autoplay && !reduceMotion) newsSwiper.autoplay.start();
+      });
+      newsNav.querySelector('.prevBtn').addEventListener('click', function () {
+        newsSwiper.animating = false;
+        newsSwiper.slidePrev(350);
+        if (newsSwiper.autoplay && !reduceMotion) newsSwiper.autoplay.start();
+      });
+    }
   }
 
   /* 사업분야 탭 (원본: 탭 클릭 → 스와이퍼 표시 전환 + slideTo(0) + 배경 교체) */

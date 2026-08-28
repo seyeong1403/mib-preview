@@ -25,6 +25,7 @@
   --point-text: #0089CF;        /* 글자·보더 포인트 */
   --point-fill: #0089CF;        /* 채움 포인트 (바·언더라인·드래그) */
   --point-on-dark: #5BB8EC;     /* 다크 배경 위 포인트 글자 틴트 */
+  --card-radius: 20px;          /* 하오웹 레퍼런스 실측: 카드 파이값 20px (2026-08-28) */
   --navy-deep: #0A1826;
 }
 
@@ -285,6 +286,7 @@ section.visual#mv-ix {
 /* 실측: 슬라이드 496px, pad 30 25, bg rgba(255,255,255,.18) */
 .business-swiper .swiper-slide {
   width: 496px; height: 453px; padding: 30px 25px;
+  border-radius: var(--card-radius); overflow: hidden;
   background: rgba(255, 255, 255, .16);
   backdrop-filter: blur(14px);          /* 프로스트 블러: 배경 디테일 차단 → 제품이 또렷하게 */
   -webkit-backdrop-filter: blur(14px);
@@ -310,7 +312,7 @@ section.visual#mv-ix {
 .main-con3 .inner3 { display: flex; align-items: center; }
 .main-con3 .left { width: 50%; flex-shrink: 0; }
 .main-con3 .left .list li {
-  overflow: hidden; background: #F2F4F6; height: 300px;
+  overflow: hidden; background: #F2F4F6; height: 300px; border-radius: var(--card-radius);
   display: flex; align-items: center; justify-content: center;
 }
 .main-con3 .left .list li + li { margin-top: 10px; }
@@ -337,34 +339,32 @@ section.visual#mv-ix {
 .main-con4 { padding: 150px 0 100px; }
 .main-con4 .bluetext { margin-bottom: 6px; }
 .main-con4 .title-wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 59px; }
-.histWrap { display: grid; grid-template-columns: 440px 1fr; gap: 90px; align-items: stretch; }
-.histPhoto { position: relative; overflow: hidden; }
-.histPhoto img { width: 100%; height: 100%; min-height: 480px; object-fit: cover; }
-.histPhoto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,15,26,0) 45%, rgba(6,15,26,.66) 100%); }
-.histPhoto .histSince {
-  position: absolute; left: 30px; bottom: 24px; z-index: 2; color: #fff;
-  font-size: 15px; font-weight: 600; letter-spacing: .14em;
+.histWrap { display: grid; grid-template-columns: 440px 1fr; gap: 90px; align-items: start; }
+.histIntro { position: sticky; top: 140px; }
+.histLead { font-size: 18px; color: var(--gray-600); line-height: 1.75; }
+/* DB 096 원강금속 History: 연도 큰 볼드 + 헤어라인 + 항목, 사진 없이 전체 한눈 */
+.histYears > li + li { margin-top: 54px; }
+.histYears .year {
+  font-size: 42px; font-weight: 800; line-height: 1; color: var(--point-text);
+  padding-bottom: 18px; border-bottom: 1px solid #e4e8ec; margin-bottom: 18px;
 }
-.histPhoto .histSince strong { display: block; font-size: 46px; font-weight: 800; letter-spacing: 0; line-height: 1.1; }
-.histLine { border-left: 2px solid #e4e8ec; }
-.histLine > li { position: relative; padding: 0 0 44px 44px; }
-.histLine > li:last-child { padding-bottom: 0; }
-.histLine > li::before {
-  content: ""; position: absolute; left: -7px; top: 12px; width: 12px; height: 12px; border-radius: 50%;
-  background: var(--point-fill); box-shadow: 0 0 0 4px rgba(0, 137, 207, .18);
-}
-.histLine .year { font-size: 38px; font-weight: 800; line-height: 1; color: var(--point-text); margin-bottom: 14px; }
-.histLine > li.now .year { color: var(--ink); }
-.histLine > li.now::before { background: var(--navy-deep); box-shadow: 0 0 0 4px rgba(10,24,38,.14); }
-.histLine ul li {
-  font-size: 17px; color: var(--ink-700, #2b3440); padding: 4px 0 4px 16px; position: relative; line-height: 1.6;
-}
-.histLine ul li::before { content: ""; position: absolute; left: 0; top: 17px; width: 7px; height: 2px; background: var(--point-fill); }
+.histYears > li.now .year { color: var(--ink); }
+.histYears ul li { font-size: 17px; color: var(--ink-700, #2b3440); line-height: 1.7; padding: 3px 0; }
 
 /* ---------- main-con5 (실측: pt150 pb150, 카드 394 가로 슬라이더) ---------- */
 .main-con5 { padding: 150px 0 150px; }
 .main-con5 .bluetext { margin-bottom: 6px; }
-.main-con5 .txt2 { margin-bottom: 50px; }
+.main-con5 .txt2 { margin-bottom: 0; }
+.main-con5 .title-wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 50px; }
+.newsNav { display: flex; gap: 10px; }
+.newsNav button {
+  width: 46px; height: 46px; border: 1px solid #d8dde3; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; color: var(--ink);
+  transition: background .2s, border-color .2s, color .2s;
+}
+.newsNav button:hover { background: var(--point-fill); border-color: var(--point-fill); color: #fff; }
+/* 연속 흐름(마퀴): 오토플레이 linear */
+.news-swiper .swiper-wrapper { transition-timing-function: linear; }
 .news-swiper { overflow: hidden; }
 .news-swiper .swiper-slide { width: 394px; }
 .news-swiper .card { display: flex; flex-direction: column; height: 100%; }
@@ -375,16 +375,9 @@ section.visual#mv-ix {
 .news-swiper .title { font-size: 20px; font-weight: 700; line-height: 1.4; margin-bottom: 10px; min-height: 56px; }
 .news-swiper .content { font-size: 16px; color: var(--gray-600); margin-bottom: 22px; min-height: 48px;
   overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
-.news-swiper .img-banner { width: 100%; aspect-ratio: 394 / 300; overflow: hidden; }
+.news-swiper .img-banner { width: 100%; aspect-ratio: 394 / 300; overflow: hidden; border-radius: var(--card-radius); }
 .news-swiper .img-banner img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
 .news-swiper .card:hover .img-banner img { transform: scale(1.05); }
-/* 실측: 커스텀 뉴스 스크롤바 4px — Swiper 기본 absolute(.swiper-scrollbar-horizontal)보다 특이도 우선 */
-.news-swiper .news-scrollbar.swiper-scrollbar,
-.news-swiper .news-scrollbar.swiper-scrollbar-horizontal {
-  position: relative; left: auto; bottom: auto; width: 100%;
-  display: block; height: 4px; margin-top: 34px; background: rgba(0,0,0,.12); border-radius: 0;
-}
-.news-scrollbar .swiper-scrollbar-drag { background: var(--point-fill); border-radius: 0; }
 
 /* ---------- 푸터 (실측: #F9F9F9, pt70) ---------- */
 #footer { background: var(--bg-foot); padding-top: 70px; position: relative; }
@@ -468,9 +461,10 @@ section.visual#mv-ix {
 
   .main-con4 { padding: 90px 0 60px; }
   .main-con4 .title-wrap { flex-direction: column; align-items: flex-start; }
-  .histWrap { grid-template-columns: 1fr; gap: 40px; }
-  .histPhoto img { min-height: 260px; height: 260px; }
-  .histLine .year { font-size: 30px; }
+  .histWrap { grid-template-columns: 1fr; gap: 36px; }
+  .histIntro { position: static; }
+  .histYears .year { font-size: 30px; }
+  .histYears > li + li { margin-top: 36px; }
 
   .main-con5 { padding: 90px 0; }
   .news-swiper .swiper-slide { width: 300px; }
@@ -501,6 +495,7 @@ section.visual#mv-ix {
   transition: transform .4s;
 }
 .main-con1 .about-visual.cutbox {
+  border-radius: var(--card-radius); overflow: hidden;
   background: #F2F4F6; display: flex; align-items: center; justify-content: center; height: 506px;
 }
 .main-con1 .about-visual.cutbox img { width: auto; height: auto; max-width: 78%; max-height: 70%; object-fit: contain; filter: drop-shadow(0 20px 22px rgba(10,24,38,.16)); }
