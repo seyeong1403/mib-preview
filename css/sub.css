@@ -256,3 +256,122 @@
   .formRow { grid-template-columns: 1fr; }
   .boardHead { flex-direction: column; align-items: flex-start; }
 }
+
+
+/* ============================================================
+   v3 추가 (2026-09 업체 수정): 컨설팅 4분야·산업·소식 컴포넌트
+   ============================================================ */
+.t5.consult { color: var(--consult); }
+
+/* 서브 탭 6개 대응 */
+.subTabbar { gap: 26px; flex-wrap: wrap; }
+
+/* R&D 사업 영역 */
+.rndAreaGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 34px; }
+.rndAreaGrid .card {
+  border: 1px solid #e4e8ec; border-radius: var(--card-radius); background: #fff; padding: 26px 28px;
+  transition: transform .25s, box-shadow .25s;
+}
+.rndAreaGrid .card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(10,24,38,.08); }
+.rndAreaGrid .no { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--consult); }
+.rndAreaGrid h4 { font-size: 19px; font-weight: 800; margin-top: 8px; }
+
+/* R&D 3단계 프로세스 표 */
+.stepBlock { margin-top: 44px; }
+.stepTitle { display: flex; align-items: center; gap: 14px; font-size: 22px; font-weight: 800; margin-bottom: 16px; }
+.stepTitle span {
+  font-size: 13px; font-weight: 800; letter-spacing: .06em; color: #fff; background: var(--consult);
+  border-radius: 999px; padding: 6px 14px;
+}
+.stepTable { width: 100%; border-collapse: collapse; border-top: 2px solid var(--ink); background: #fff; }
+.stepTable th, .stepTable td { border: 1px solid #e4e8ec; padding: 14px 16px; font-size: 15px; line-height: 1.7; vertical-align: top; text-align: left; }
+.stepTable thead th { background: var(--bg-soft, #f7f8fa); font-weight: 800; text-align: center; }
+.stepTable tbody th { background: #fbfcfd; font-weight: 700; width: 110px; white-space: nowrap; }
+.stepTable tbody tr th:first-child { text-align: center; vertical-align: middle; }
+
+/* 스마트/로봇 지원사업 3열 */
+.bizAreaCols { display: grid; grid-template-columns: 1fr 1fr .8fr; gap: 16px; margin-top: 34px; }
+.bizAreaCols .card { border: 1px solid #e4e8ec; border-radius: var(--card-radius); background: #fff; padding: 30px 30px 34px; }
+.bizAreaCols .card.orgs { background: var(--navy-deep); color: #fff; border-color: var(--navy-deep); }
+.bizAreaCols .no { font-size: 13px; font-weight: 800; letter-spacing: .08em; color: var(--consult); }
+.bizAreaCols .card.orgs .no { color: var(--point-on-dark); }
+.bizAreaCols h4 { font-size: 20px; font-weight: 800; margin: 10px 0 16px; }
+.bizAreaCols ul li { font-size: 15.5px; line-height: 1.75; color: var(--gray-600); padding-left: 14px; position: relative; }
+.bizAreaCols ul li::before { content: ""; position: absolute; left: 0; top: 12px; width: 6px; height: 2px; background: var(--consult); }
+.bizAreaCols .card.orgs ul li { color: rgba(255,255,255,.85); font-size: 17px; padding: 6px 0 6px 14px; }
+.bizAreaCols .card.orgs ul li::before { background: var(--point-on-dark); top: 18px; }
+
+/* 프로세스 플로우 (정적 캡슐 나열) */
+.flowSteps { margin-top: 30px; }
+.flowLabel { font-size: 17px; font-weight: 800; margin: 26px 0 14px; }
+.flowLine { display: flex; flex-wrap: wrap; gap: 10px; counter-reset: fs; }
+.flowLine li {
+  counter-increment: fs; position: relative;
+  border: 1px solid #e4e8ec; border-radius: 999px; background: #fff;
+  padding: 10px 20px 10px 16px; font-size: 15px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.flowLine li::before {
+  content: counter(fs, decimal-leading-zero);
+  font-size: 12px; font-weight: 800; color: var(--consult);
+}
+.flowLine.vertical { flex-direction: column; align-items: stretch; gap: 8px; }
+.flowLine.vertical li { border-radius: 12px; }
+
+/* 기술 인증 컨설팅 */
+.certCons { display: grid; grid-template-columns: 1.2fr .8fr; gap: 20px; margin-top: 30px; }
+.certCons .cc-col { border: 1px solid #e4e8ec; border-radius: var(--card-radius); background: #fff; padding: 30px 32px; }
+.certCons h4 { font-size: 20px; font-weight: 800; margin-bottom: 16px; }
+.certCons .cc-col > ul > li { font-size: 15.5px; line-height: 1.8; color: var(--gray-600); padding: 4px 0 4px 16px; position: relative; }
+.certCons .cc-col > ul > li::before { content: ""; position: absolute; left: 0; top: 15px; width: 7px; height: 2px; background: var(--consult); }
+.ccNote { margin-top: 16px; font-size: 14px; color: var(--gray-500); }
+
+/* 산업 분야 상세 */
+.indDetailGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
+.indDetail { border: 1px solid #e4e8ec; border-radius: var(--card-radius); background: #fff; overflow: hidden; }
+.indDetail .thumb {
+  aspect-ratio: 4 / 2.4; background: var(--bg-soft, #f7f8fa); border-bottom: 1px dashed #c6cdd4;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  color: var(--gray-500); font-size: 14px; font-weight: 600;
+}
+.indDetail .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.indDetail .body { padding: 22px 26px 26px; }
+.indDetail .no { font-size: 12px; font-weight: 800; letter-spacing: .1em; color: var(--gray-500); }
+.indDetail h3 { font-size: 21px; font-weight: 800; margin: 6px 0 8px; }
+.indDetail h3 .en { font-size: 13px; font-weight: 500; color: var(--gray-500); margin-left: 6px; letter-spacing: .04em; }
+.indDetail .body > p { font-size: 15px; color: var(--gray-600); line-height: 1.7; }
+
+/* 연구소 이미지 슬롯 */
+.rndImgSlot {
+  margin-top: 22px; height: 150px; border: 1px dashed rgba(255,255,255,.4); border-radius: 12px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  color: rgba(255,255,255,.6); font-size: 13px; font-weight: 600;
+}
+
+/* 소식 */
+.newsCards { margin-top: 40px; display: grid; gap: 16px; }
+.newsItem {
+  border: 1px solid #e4e8ec; border-radius: var(--card-radius); background: #fff; padding: 30px 34px;
+  display: block; transition: transform .25s, box-shadow .25s;
+}
+.newsItem:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(10,24,38,.09); }
+.newsItem .tag {
+  display: inline-block; font-size: 13px; font-weight: 700; color: var(--point-text);
+  border: 1px solid var(--point-text); border-radius: 999px; padding: 4px 12px; margin-bottom: 14px;
+}
+.newsItem h3 { font-size: 21px; font-weight: 800; line-height: 1.4; }
+.newsItem p { margin-top: 8px; font-size: 15.5px; color: var(--gray-600); line-height: 1.7; }
+.newsItem .date { display: block; margin-top: 14px; font-size: 14px; color: var(--gray-500); }
+.newsNote { margin-top: 22px; font-size: 14px; color: var(--gray-500); }
+
+/* 주간브리핑 임베드(메일 HTML 원문 그대로) */
+.briefWrap { margin-top: 34px; border: 1px solid #e4e8ec; border-radius: var(--card-radius); overflow: hidden; }
+.briefWrap table { max-width: 100%; }
+
+@media (max-width: 1023px) {
+  .rndAreaGrid, .bizAreaCols, .indDetailGrid { grid-template-columns: 1fr; }
+  .certCons { grid-template-columns: 1fr; }
+  .stepTable { font-size: 13px; }
+  .stepTable th, .stepTable td { padding: 10px; font-size: 13.5px; }
+  .subMainTab { padding-top: 34px; }
+}

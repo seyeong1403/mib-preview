@@ -4,21 +4,19 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>엠아이비(MIB) — 제조혁신을 설계하는 기술사업화 전문 파트너</title>
-<meta name="description" content="엠아이비는 반도체 정밀부품 제조와 정부지원사업·스마트공장·제조AI·로봇자동화 컨설팅을 수행하는 제조혁신 전문 기업입니다.">
-<!-- 폰트: Pretendard (세영님 지시로 전면 교체) -->
+<title>엠아이비 — 반도체 정밀부품 제조 · 제조혁신 컨설팅</title>
+<meta name="description" content="엠아이비는 반도체 정밀부품 제조와 R&D·스마트 제조·로봇 자동화·기술 인증 컨설팅을 수행하는 제조혁신 전문 기업입니다.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 <link rel="stylesheet" href="css/main.css">
 </head>
-<body class="no_scroll">
+<body>
 <a class="skip-link" href="#main">본문 바로가기</a>
 
-<!-- ================= 헤더 (파나시아 #header 구조) ================= -->
+<!-- ================= 헤더 ================= -->
 <div id="header">
   <div class="inner">
     <a class="logo" href="index.html" aria-label="엠아이비 홈">
-      <img src="images/logo.png" alt="엠아이비 MIB — Mecha Innovation Business">
+      <img src="images/logo.png" alt="엠아이비 — Mecha Innovation Business">
     </a>
     <nav id="gnb" aria-label="주 메뉴">
       <ul>
@@ -36,7 +34,11 @@
           <a href="business/manufacturing.html">사업분야</a>
           <div class="dep2Menu">
             <a href="business/manufacturing.html">제조 사업부</a>
-            <a href="business/consulting.html">컨설팅 사업부</a>
+            <a href="business/rnd.html">R&amp;D 컨설팅</a>
+            <a href="business/smart.html">스마트 제조</a>
+            <a href="business/robot.html">로봇 자동화</a>
+            <a href="business/cert-consulting.html">기술 인증 컨설팅</a>
+            <a href="business/industries.html">산업 분야</a>
           </div>
         </li>
         <li>
@@ -47,6 +49,9 @@
             <a href="support/contact.html">온라인 문의</a>
           </div>
         </li>
+        <li>
+          <a href="news/list.html">소식</a>
+        </li>
       </ul>
     </nav>
     <div class="subMenu">
@@ -56,14 +61,6 @@
       </button>
     </div>
   </div>
-</div>
-
-<!-- ================= 좌측 레일 (파나시아 #headerY: 110px, 세로 텍스트 + 전체메뉴) ================= -->
-<div id="headerY" class="pc">
-  <span class="txt saira">We&rsquo;re MIB</span>
-  <button class="allMenuBtn" aria-label="전체 메뉴 열기" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
 </div>
 
 <!-- 전체메뉴 오버레이 -->
@@ -79,7 +76,7 @@
     <div>
       <p class="dep1">사업분야</p>
       <div class="dep2">
-        <a href="business/manufacturing.html">제조 사업부</a><a href="business/consulting.html">컨설팅 사업부</a>
+        <a href="business/manufacturing.html">제조 사업부</a><a href="business/rnd.html">R&amp;D 컨설팅</a><a href="business/smart.html">스마트 제조</a><a href="business/robot.html">로봇 자동화</a><a href="business/cert-consulting.html">기술 인증 컨설팅</a><a href="business/industries.html">산업 분야</a>
       </div>
     </div>
     <div>
@@ -88,256 +85,306 @@
         <a href="support/notice.html">공지사항</a><a href="support/archive.html">자료실</a><a href="support/contact.html">온라인 문의</a>
       </div>
     </div>
+    <div>
+      <p class="dep1">소식</p>
+      <div class="dep2">
+        <a href="news/list.html">엠아이비 소식</a>
+      </div>
+    </div>
   </div>
 </div>
 
 <main id="main">
 
-<!-- ================= 히어로 (파나시아 #mv-ix 구조·모션 이식) ================= -->
-<section class="visual" id="mv-ix">
-  <div class="tit-box">
-    <div class="tit">
-      <strong class="tit__header">제조혁신을 설계하는<br>기술사업화 전문 파트너.</strong>
-      <div class="tit__des">엠아이비는 반도체 정밀부품 제조와 제조혁신 컨설팅으로<br>기술을 사업으로, 제조를 혁신으로 연결합니다.</div>
+<!-- ================= 스플릿 히어로: 제조 | 컨설팅 ================= -->
+<section class="splitHero" aria-label="사업 영역 바로가기">
+  <a class="panel panel--mfg" href="business/manufacturing.html">
+    <span class="bg" style="background-image:url('images/company/hero-fab.jpg')" aria-hidden="true"></span>
+    <div class="cont">
+      <span class="label">제조 사업부</span>
+      <h2>반도체 정밀부품 제조</h2>
+      <p>Si·SiC·CVD SiC·첨단 세라믹 소재 기반의 에칭공정용 정밀부품을 설계부터 가공·품질까지 통합 생산합니다.</p>
+      <span class="go">자세히 보기
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>
+  </a>
+  <a class="panel panel--consult" href="business/rnd.html">
+    <span class="bg slot" aria-hidden="true"></span>
+    <span class="imgSlotTag">컨설팅 이미지 삽입 예정</span>
+    <div class="cont">
+      <span class="label">컨설팅 사업부</span>
+      <h2>제조혁신 컨설팅</h2>
+      <p>R&amp;D 컨설팅부터 스마트 제조·로봇 자동화·기술 인증까지, 기업의 기술과 현장을 함께 이해하는 파트너가 되겠습니다.</p>
+      <span class="go">자세히 보기
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>
+  </a>
+</section>
+
+<!-- 공통 카피 밴드 -->
+<div class="heroCopy">
+  <div class="inner">
+    <p class="copy">기술을 사업으로, 제조를 혁신으로 연결합니다.</p>
+    <p class="keywords">반도체 정밀부품 · 정부지원 R&amp;D · 스마트 제조 · 로봇 자동화 · 기술 인증</p>
+  </div>
+</div>
+
+<!-- ================= 회사소개 ================= -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about__grid">
+      <div class="about__body">
+        <p class="bluetext">회사소개</p>
+        <h2 class="txt2">기술을 사업으로,<br>제조를 혁신으로 연결합니다.</h2>
+        <p class="txt3">엠아이비는 반도체 및 첨단 세라믹 정밀부품 제조 기술을 기반으로, 기업의 기술과 제조현장을 함께 이해하는 제조혁신 전문 기업입니다. 생산현장을 분석하고 가장 적합한 정부지원사업을 기획하며, 연구개발부터 사업화·수행관리까지 전 과정을 함께합니다.</p>
+        <a href="company/about.html" class="add-button">회사소개 보기</a>
+      </div>
+      <ol class="aboutSteps" aria-label="엠아이비 기술사업화 선순환 단계">
+        <li><span class="num">STEP 01</span><span class="ko">제조</span><span class="en">MANUFACTURING</span></li>
+        <li><span class="num">STEP 02</span><span class="ko">기술</span><span class="en">TECHNOLOGY</span></li>
+        <li><span class="num">STEP 03</span><span class="ko">사업</span><span class="en">BUSINESS</span></li>
+        <li><span class="num">STEP 04</span><span class="ko">성장</span><span class="en">GROWTH</span></li>
+      </ol>
     </div>
   </div>
+</section>
 
-  <div class="mv-ix_visual_wrap s-inner">
-    <div class="mv-ix_visual_box">
-      <div class="sec-inner mv-ix_visual">
-        <div class="txt-video-wrap">
-          <div class="video-wrap">
-            <!-- 파나시아는 영상, MIB는 영상 자료가 없어 이미지 대체 -->
-            <img src="images/company/hero-fab.jpg" alt="로봇 자동화 설비가 가동 중인 반도체 제조 라인" fetchpriority="high">
-          </div>
-          <div class="txt-wrap">
-            <div class="txt-wrap-inner">
-              <p class="txt-video__tit">기술을 사업으로,<br>제조를 혁신으로 연결합니다.</p>
-              <p class="txt-video__des">반도체 정밀부품 제조 · 정부지원 R&amp;D · 스마트공장 · 제조AI · 로봇자동화</p>
-            </div>
-            <div class="txt-video__btm">
-              <div class="txt-video__btm-inner">
-                <span class="scroll-down-icon" aria-hidden="true"></span>
-                <span class="txt-video__txt">SCROLL</span>
-              </div>
-            </div>
-          </div>
+<!-- ================= 제조 사업부 ================= -->
+<section class="section section--soft mfgSec" id="mfg">
+  <div class="container">
+    <div class="secHead">
+      <div>
+        <p class="bluetext">제조 사업부</p>
+        <h2 class="txt2">반도체 에칭공정용 정밀부품</h2>
+      </div>
+      <a href="business/manufacturing.html" class="add-button">제조 사업부 보기</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="matMarquee" aria-label="주요 소재">
+      <div class="swiper-wrapper">
+        <div class="matCard">
+          <p class="en">Silicon</p>
+          <h3>Si</h3>
+          <p>우수한 전기적 특성과 높은 순도, 뛰어난 가공성을 갖춘 반도체 대표 소재입니다. Electrode·Ring·C-Ring 등 핵심 부품을 정밀 가공으로 제작합니다.</p>
+          <div class="img"><img src="images/products/cut/1.png" alt="Si 전극 부품" loading="lazy"></div>
+        </div>
+        <div class="matCard">
+          <p class="en">Silicon Carbide</p>
+          <h3>SiC</h3>
+          <p>높은 경도와 내마모성, 뛰어난 내열성을 갖춘 고기능성 세라믹 소재입니다. 고난도 정밀 가공 기술로 Electrode·Plate 등을 제작합니다.</p>
+          <div class="img"><img src="images/products/cut/6.png" alt="SiC 웨이브 전극 부품" loading="lazy"></div>
+        </div>
+        <div class="matCard">
+          <p class="en">CVD SiC</p>
+          <h3>CVD SiC</h3>
+          <p>초고순도와 낮은 파티클 발생 특성으로 첨단 반도체 공정에 활용되는 소재입니다. Baffle·C-Ring 등 고정밀 부품을 공급합니다.</p>
+          <div class="img"><img src="images/products/cut/8.png" alt="CVD SiC C-Ring 부품" loading="lazy"></div>
+        </div>
+        <div class="matCard">
+          <p class="en">Advanced Ceramics</p>
+          <h3>첨단 세라믹</h3>
+          <p>Alumina·Quartz·Sapphire 등 고기능성 세라믹 소재를 기반으로 고객 요구에 최적화된 정밀 부품을 제작합니다.</p>
+          <div class="img"><img src="images/products/cut/15.png" alt="Alumina·Quartz·Sapphire 노즐" loading="lazy"></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 핀 섹션 (파나시아 GSAP 타임라인 이식) ================= -->
-<div class="container mainCon mainCon-gsap-wrap" id="about">
-  <div class="main-con1">
-    <div class="inner">
-      <div class="text-banner">
-        <p class="bluetext">About MIB</p>
-        <p class="txt2">기술을 사업으로,<br>제조를 혁신으로<br>연결합니다.</p>
-        <p class="txt3">엠아이비는 반도체 및 첨단 세라믹 정밀부품 제조 기술을 기반으로, 기업의 기술과 제조현장을 함께 이해하는 제조혁신 전문 기업입니다.</p>
-        <a href="company/about.html" class="button add-button">자세히 보기</a>
-      </div>
-      <div class="suffix">
-        <div class="img-banner about-visual cutbox">
-          <img src="images/products/cut/7.png" alt="엠아이비가 제작한 반도체 정밀부품" loading="lazy">
-        </div>
-      </div>
-      <div class="bottom-text" aria-hidden="true">INNOVATION</div>
-    </div>
-  </div>
-
-  <div class="main-con2">
-    <div class="business-bg" aria-hidden="true"></div>
-    <div class="container">
-      <div class="inner">
-        <p class="bluetext">Our Business</p>
-        <p class="txt2">정밀 제조 기술과 컨설팅으로<br>제조 산업의 경쟁력을 높입니다.</p>
-        <div class="business-wrap">
-          <div class="btn-area">
-            <ul role="tablist" aria-label="사업 분야 선택">
-              <li class="active"><button role="tab" aria-selected="true" data-wrap="0">Si (Silicon)</button></li>
-              <li><button role="tab" aria-selected="false" data-wrap="1">SiC (Silicon Carbide)</button></li>
-              <li><button role="tab" aria-selected="false" data-wrap="2">CVD SiC</button></li>
-              <li><button role="tab" aria-selected="false" data-wrap="3">Advanced Ceramics</button></li>
-              <li><button role="tab" aria-selected="false" data-wrap="4">R&amp;D·인증 컨설팅</button></li>
-              <li><button role="tab" aria-selected="false" data-wrap="5">스마트·AI·로봇 자동화</button></li>
-            </ul>
-          </div>
-          <div class="business-swipers">
-
-            <div class="business-swiper active" data-wrap="0">
-              <div class="swiper"><div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="title">Electrode</div><div class="dsec">플라즈마 공정 환경에서 안정적인 특성을 유지하는 고순도 실리콘 전극입니다.</div><div class="img-banner cutbox"><img src="images/products/cut/1.png" alt="Si Electrode" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">Wave Electrode</div><div class="dsec">복잡한 형상 구현이 필요한 고난도 실리콘 웨이브 전극입니다.</div><div class="img-banner cutbox"><img src="images/products/cut/2.png" alt="Si Wave Electrode" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">Ring</div><div class="dsec">미세 공차가 요구되는 반도체 에칭공정용 실리콘 링 부품입니다.</div><div class="img-banner cutbox"><img src="images/products/cut/3.png" alt="Si Ring" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">C-Ring</div><div class="dsec">고객 요구에 맞춘 맞춤형 설계와 정밀 가공으로 제작하는 C-Ring입니다.</div><div class="img-banner cutbox"><img src="images/products/cut/4.png" alt="Si C-Ring" loading="lazy"></div></div>
-              </div><div class="swiper-scrollbar"></div></div>
-            </div>
-
-            <div class="business-swiper" data-wrap="1">
-              <div class="swiper"><div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="title">Electrode</div><div class="dsec">우수한 표면 품질과 고정밀 치수로 제작하는 SiC 전극입니다.</div><div class="img-banner cutbox"><img src="images/products/cut/5.png" alt="SiC Electrode" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">Wave Electrode</div><div class="dsec">높은 경도와 내열성을 갖춘 SiC 소재의 고난도 정밀 가공 부품입니다.</div><div class="img-banner cutbox"><img src="images/products/cut/6.png" alt="SiC Wave Electrode" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">Plate</div><div class="dsec">고온·플라즈마 환경에서도 안정적인 물성을 유지하는 SiC 플레이트입니다.</div><div class="img-banner cutbox"><img src="images/products/cut/7.png" alt="SiC Plate" loading="lazy"></div></div>
-              </div><div class="swiper-scrollbar"></div></div>
-            </div>
-
-            <div class="business-swiper" data-wrap="2">
-              <div class="swiper"><div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="title">C-Ring</div><div class="dsec">치밀한 미세구조와 높은 치수 안정성을 갖춘 CVD SiC C-Ring입니다.</div><div class="img-banner cutbox"><img src="images/products/cut/8.png" alt="CVD SiC C-Ring" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">Baffle</div><div class="dsec">초고순도·저파티클 특성의 CVD SiC 배플로 첨단 공정에 대응합니다.</div><div class="img-banner cutbox"><img src="images/products/cut/9.png" alt="CVD SiC Baffle" loading="lazy"></div></div>
-              </div><div class="swiper-scrollbar"></div></div>
-            </div>
-
-            <div class="business-swiper" data-wrap="3">
-              <div class="swiper"><div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="title">Alumina (Al&#8322;O&#8323;)</div><div class="dsec">우수한 절연성과 내화학성을 갖춘 산업용 세라믹 정밀 부품입니다.</div><div class="img-banner cutbox"><img src="images/products/cut/10.png" alt="Alumina 부품" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">Quartz (SiO&#8322;)</div><div class="dsec">고순도 쿼츠 소재 기반의 맞춤형 정밀 부품을 제작합니다.</div><div class="img-banner cutbox"><img src="images/products/cut/12.png" alt="Quartz 부품" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">Sapphire</div><div class="dsec">단결정 사파이어 소재로 고품질 표면이 요구되는 부품에 대응합니다.</div><div class="img-banner cutbox"><img src="images/products/cut/14.png" alt="Sapphire 부품" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">Nozzle 3종</div><div class="dsec">Alumina·Quartz·Sapphire 소재별 노즐을 공정 환경에 맞춰 공급합니다.</div><div class="img-banner cutbox"><img src="images/products/cut/15.png" alt="Alumina·Quartz·Sapphire 노즐" loading="lazy"></div></div>
-              </div><div class="swiper-scrollbar"></div></div>
-            </div>
-
-            <div class="business-swiper" data-wrap="4">
-              <div class="swiper"><div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="title">R&amp;D 지원사업</div><div class="dsec">기업 분석부터 과제 매칭, 사업계획서 작성, 평가 대응, 수행관리까지 연구개발과제 전 과정을 지원합니다.</div><div class="img-banner"><img src="images/company/hero-fab.jpg" alt="R&D 지원사업" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">NET·NEP 인증</div><div class="dsec">신기술(NET)·신제품(NEP) 인증의 서류 작성부터 발표·현장 심사 대응까지 단계별로 함께합니다.</div><div class="img-banner cutbox"><img src="images/products/cut/12.png" alt="NET·NEP 인증 컨설팅" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">혁신시제품 인증</div><div class="dsec">공공조달시장 진출을 위한 제품 진단과 공공성·혁신성 분석, 지정 신청, 사후 지원까지 제공합니다.</div><div class="img-banner cutbox"><img src="images/products/cut/14.png" alt="혁신시제품 인증 컨설팅" loading="lazy"></div></div>
-              </div><div class="swiper-scrollbar"></div></div>
-            </div>
-
-            <div class="business-swiper" data-wrap="5">
-              <div class="swiper"><div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="title">정부형 스마트공장</div><div class="dsec">MES·POP·SCM 등 스마트공장 구축과 공정 자동화, 제조 데이터 기반 생산관리를 지원합니다.</div><div class="img-banner"><img src="images/company/hero-fab.jpg" alt="스마트공장 구축" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">제조AI 특화</div><div class="dsec">AI Agent·On-device AI·예측유지보수·품질예측·공정최적화로 AI Factory 구축을 돕습니다.</div><div class="img-banner cutbox"><img src="images/products/cut/6.png" alt="제조AI 구축" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">로봇활용 제조혁신</div><div class="dsec">협동로봇·산업용 로봇·Vision AI 기반의 제조공정 로봇자동화를 지원합니다.</div><div class="img-banner cutbox"><img src="images/products/cut/11.png" alt="로봇자동화" loading="lazy"></div></div>
-                <div class="swiper-slide"><div class="title">첨단제조로봇 실증</div><div class="dsec">제조공정 로봇 실증과 공정모델 검증, AI 기반 로봇시스템 확산에 대응합니다.</div><div class="img-banner cutbox"><img src="images/products/cut/9.png" alt="첨단제조로봇 실증" loading="lazy"></div></div>
-              </div><div class="swiper-scrollbar"></div></div>
-            </div>
-
-          </div>
-        </div>
+<!-- ================= 컨설팅 사업부 ================= -->
+<section class="section" id="consulting">
+  <div class="container">
+    <div class="secHead consult">
+      <div>
+        <p class="bluetext">컨설팅 사업부</p>
+        <h2 class="txt2">제조혁신 컨설팅 4개 분야</h2>
       </div>
     </div>
+    <div class="consultGrid">
+      <a class="consultCard" href="business/rnd.html">
+        <div class="thumb" data-slot="컨설팅-R&D 이미지">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#9aa4ae" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+          <span>이미지 삽입 예정</span>
+        </div>
+        <div class="body">
+          <p class="no">CONSULTING 01</p>
+          <h3>R&amp;D 컨설팅</h3>
+          <p>산업기술혁신사업부터 기술이전 사업화까지, 연구개발과제 전 과정을 지원합니다.</p>
+          <span class="more">자세히 보기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="consultCard" href="business/smart.html">
+        <div class="thumb" data-slot="컨설팅-스마트제조 이미지">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#9aa4ae" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+          <span>이미지 삽입 예정</span>
+        </div>
+        <div class="body">
+          <p class="no">CONSULTING 02</p>
+          <h3>스마트 제조</h3>
+          <p>제조AI·스마트공장 구축, MES·데이터 플랫폼, 공정 데이터 분석, 디지털 트윈을 지원합니다.</p>
+          <span class="more">자세히 보기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="consultCard" href="business/robot.html">
+        <div class="thumb" data-slot="컨설팅-로봇자동화 이미지">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#9aa4ae" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+          <span>이미지 삽입 예정</span>
+        </div>
+        <div class="body">
+          <p class="no">CONSULTING 03</p>
+          <h3>로봇 자동화</h3>
+          <p>로봇자동화 구축, AMR·협동로봇, Vision AI, 물류자동화로 제조현장의 생산성을 높입니다.</p>
+          <span class="more">자세히 보기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="consultCard" href="business/cert-consulting.html">
+        <div class="thumb" data-slot="컨설팅-기술인증 이미지">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#9aa4ae" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+          <span>이미지 삽입 예정</span>
+        </div>
+        <div class="body">
+          <p class="no">CONSULTING 04</p>
+          <h3>기술 인증 컨설팅</h3>
+          <p>NET·NEP·혁신시제품 인증의 신청부터 심사 대응까지 단계별로 함께합니다.</p>
+          <span class="more">자세히 보기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- ================= main-con3 (파나시아 ESG 슬롯: 좌 이미지 와이프 / 우 링크 리스트) ================= -->
-<div class="mainCon">
-  <div class="main-con3" id="why">
-    <div class="inner3">
-      <div class="left">
-        <ul class="list">
-          <li><img src="images/products/cut/3.png" alt="반도체 정밀부품 실리콘 링" loading="lazy"></li>
-          <li><img src="images/products/cut/6.png" alt="SiC 웨이브 전극 부품" loading="lazy"></li>
-          <li><img src="images/products/cut/13.png" alt="세라믹 쿼츠 노즐" loading="lazy"></li>
+<!-- ================= Why MIB ================= -->
+<section class="section section--soft" id="why">
+  <div class="container">
+    <div class="whyGrid">
+      <ul class="whyImgs" aria-hidden="true">
+        <li><img src="images/products/cut/3.png" alt="" loading="lazy"></li>
+        <li><img src="images/products/cut/6.png" alt="" loading="lazy"></li>
+      </ul>
+      <div>
+        <p class="bluetext">왜 엠아이비인가</p>
+        <h2 class="txt2">기술을 이해하고,<br>현장을 분석하며,<br>사업화를 설계합니다.</h2>
+        <p class="txt3" style="margin-top:16px">우리는 단순히 사업계획서를 작성하지 않습니다. 기계공학 기반의 제조기술 전문성으로 공장 라인에서 검증된 컨설팅을 제공합니다.</p>
+        <ul class="whyList">
+          <li><a href="business/manufacturing.html">제조현장 중심 컨설팅</a></li>
+          <li><a href="business/rnd.html">기술사업화 전략</a></li>
+          <li><a href="business/rnd.html">정부지원사업 전문성</a></li>
+          <li><a href="business/rnd.html">수행관리까지 One-Stop</a></li>
         </ul>
       </div>
-      <div class="right">
-        <div class="right-box">
-          <p class="bluetext">Why MIB</p>
-          <p class="txt2">기술을 이해하고,<br>현장을 분석하며,<br>사업화를 설계합니다.</p>
-          <p class="txt3">우리는 단순히 사업계획서를 작성하지 않습니다. 기계공학 기반의 제조기술 전문성으로 공장 라인에서 검증된 컨설팅을 제공합니다.</p>
-          <ul class="link-list">
-            <li><a href="business/consulting.html">제조현장 중심 컨설팅</a></li>
-            <li><a href="business/consulting.html">기술사업화 전략</a></li>
-            <li><a href="business/consulting.html">정부지원사업 전문성</a></li>
-            <li><a href="business/consulting.html">수행관리까지 One-Stop</a></li>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 산업 분야 ================= -->
+<section class="section" id="industries">
+  <div class="container">
+    <div class="secHead">
+      <div>
+        <p class="bluetext">산업 분야</p>
+        <h2 class="txt2">다양한 산업에 대응합니다.</h2>
+      </div>
+      <a href="business/industries.html" class="add-button">산업 분야 보기</a>
+    </div>
+    <div class="indGrid">
+      <a class="indCard" href="business/industries.html"><p class="no">01</p><h3>기계</h3><p class="en">Machinery</p></a>
+      <a class="indCard" href="business/industries.html"><p class="no">02</p><h3>자동차</h3><p class="en">Automotive</p></a>
+      <a class="indCard" href="business/industries.html"><p class="no">03</p><h3>반도체</h3><p class="en">Semiconductor</p></a>
+      <a class="indCard" href="business/industries.html"><p class="no">04</p><h3>선박</h3><p class="en">Shipbuilding</p></a>
+      <a class="indCard" href="business/industries.html"><p class="no">05</p><h3>2차전지</h3><p class="en">Battery</p></a>
+      <a class="indCard" href="business/industries.html"><p class="no">06</p><h3>농업</h3><p class="en">Agriculture</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 연혁 ================= -->
+<section class="section section--soft" id="history">
+  <div class="container">
+    <div class="secHead">
+      <div>
+        <p class="bluetext">연혁</p>
+        <h2 class="txt2">엠아이비가 걸어온 길</h2>
+      </div>
+      <a href="company/history.html" class="add-button">연혁 전체 보기</a>
+    </div>
+    <div class="histWrap">
+      <div class="histIntro">
+        <p class="histLead">정밀가공 기술과 컨설팅 역량을 함께 쌓아온 엠아이비의 발자취입니다. 전체 연혁은 하나의 흐름으로 이어지며, 색상으로 영역을 구분했습니다.</p>
+        <div class="histLegend">
+          <span class="c-mfg"><i></i>제조</span>
+          <span class="c-consult"><i></i>컨설팅</span>
+          <span class="c-common"><i></i>공통</span>
+        </div>
+      </div>
+      <ol class="histYears">
+        <li>
+          <p class="year">2026</p>
+          <ul>
+            <li>벤처기업 인증 갱신</li>
+            <li>소부장전문기업 인증</li>
+            <li>뿌리기업 인증</li>
+            <li class="h-mfg">반도체 공정용 Si·SiC·CVD SiC 및 첨단 세라믹 부품 사업 고도화</li>
           </ul>
-        </div>
-      </div>
+        </li>
+        <li>
+          <p class="year">2025</p>
+          <ul>
+            <li class="h-consult">NET/NEP 혁신시제품 지정 컨설팅 사업 확대</li>
+            <li class="h-consult">정부지원 기술사업화 및 사업기획 컨설팅 강화</li>
+            <li class="h-mfg">Alumina·Quartz·Sapphire 등 첨단 세라믹 소재 가공 분야 확대</li>
+          </ul>
+        </li>
+        <li>
+          <p class="year">2024</p>
+          <ul>
+            <li class="h-consult">제조AI 및 스마트공장 구축 컨설팅 확대</li>
+            <li class="h-consult">로봇자동화 구축 컨설팅 확대</li>
+            <li>구미반도체산업기업협의회 가입</li>
+            <li>김천대학교 산학협력 가족회사 협약 체결</li>
+            <li class="h-mfg">반도체 공정용 Si·SiC 정밀부품 제조사업 확대</li>
+            <li class="h-mfg">금속부품 표면처리 기술 네트워크 확보</li>
+          </ul>
+        </li>
+        <li>
+          <p class="year">2023</p>
+          <ul>
+            <li>현 사업장 사업자·공장 등록</li>
+            <li>컨설팅사업부·제조사업부 통합 운영체계 구축</li>
+            <li>기업부설연구소 설립</li>
+            <li>벤처기업 인증</li>
+            <li>한국폴리텍대학 구미캠퍼스 러닝팩토리 기업</li>
+            <li>금오공과대학교 가족회사 기업</li>
+            <li class="h-mfg">난삭재 정밀가공 및 미세홀 가공기술 연구개발체계 구축</li>
+            <li class="h-mfg">반도체 첨단부품 설계·가공·품질 통합 생산 기반 구축</li>
+          </ul>
+        </li>
+      </ol>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ================= main-con4 (파나시아 EVENT 슬롯: 3장 센터 슬라이더 → 연혁) ================= -->
-<div class="mainCon">
-  <div class="main-con4" id="history">
-    <div class="container">
-      <div class="inner">
-        <p class="bluetext">History</p>
-        <div class="title-wrap">
-          <p class="txt2">엠아이비가 걸어온 길을 소개합니다.</p>
-          <a href="company/history.html" class="button add-button">연혁 전체 보기</a>
-        </div>
-        <div class="histWrap">
-          <div class="histIntro">
-            <p class="histLead">반도체 정밀부품 제조에서 제조혁신 컨설팅까지,<br>엠아이비는 설립 첫해부터 두 축으로 성장해 왔습니다.</p>
-          </div>
-          <ol class="histYears">
-            <li>
-              <p class="year">2023</p>
-              <ul>
-                <li>엠아이비 설립</li>
-                <li>기업부설연구소 설립</li>
-                <li>반도체 정밀부품 제조사업 진출</li>
-                <li>정부지원사업 컨설팅 사업 개시</li>
-              </ul>
-            </li>
-            <li>
-              <p class="year">2024</p>
-              <ul>
-                <li>로봇자동화 구축사업 수행</li>
-              </ul>
-            </li>
-            <li>
-              <p class="year">2025</p>
-              <ul>
-                <li>제조AI 및 스마트공장 구축 컨설팅 확대</li>
-                <li>혁신시제품 인증 컨설팅 확대</li>
-              </ul>
-            </li>
-            <li class="now">
-              <p class="year">현재</p>
-              <ul>
-                <li>제조혁신·기술사업화 전문기업으로 성장</li>
-              </ul>
-            </li>
-          </ol>
-        </div>
-      </div>
+<!-- ================= Contact 밴드 ================= -->
+<section class="contactBand" id="contact">
+  <div class="inner">
+    <div>
+      <h2>궁금한 점이 있으신가요?<br>말씀해 주시면 함께 방법을 찾겠습니다.</h2>
+      <p>TEL 054-463-8230 · 경북 구미시 수출대로 152, 세원테크노밸리 316호</p>
+    </div>
+    <div class="btns">
+      <a class="primary" href="support/contact.html">온라인 문의하기
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="ghost" href="company/location.html">오시는길</a>
     </div>
   </div>
-</div>
-
-<!-- ================= main-con5 (파나시아 NEWS 슬롯: 카드 슬라이더 → 주요 수행 분야) ================= -->
-<div class="mainCon">
-  <div class="main-con5" id="practice">
-    <div class="container news-swiper-container">
-      <div class="inner">
-        <p class="bluetext">Practice</p>
-        <div class="title-wrap">
-          <p class="txt2">MIB의 주요 수행 분야를 소개합니다.</p>
-          <div class="newsNav" aria-label="수행 분야 넘기기">
-            <button class="prevBtn" aria-label="이전 분야 보기">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
-            </button>
-            <button class="nextBtn" aria-label="다음 분야 보기">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="news-swiper">
-          <div class="swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><div class="card"><span class="tag">AREA 01</span><p class="title">Government R&amp;D<br>국가 R&amp;D 과제</p><p class="content">산업부·중기부·KIAT·KEIT·TIPA 등 주요 국가 R&amp;D 과제 기획·수행 지원</p><div class="img-banner"><img src="images/company/hero-fab.jpg" alt="국가 R&D 과제" loading="lazy"></div></div></div>
-              <div class="swiper-slide"><div class="card"><span class="tag">AREA 02</span><p class="title">Manufacturing AI<br>제조 AI</p><p class="content">AI Agent·예측유지보수·품질예측·공정최적화 기반 AI Factory 구축</p><div class="img-banner cutbox"><img src="images/products/cut/4.png" alt="제조 AI" loading="lazy"></div></div></div>
-              <div class="swiper-slide"><div class="card"><span class="tag">AREA 03</span><p class="title">Robot Automation<br>로봇 자동화</p><p class="content">협동로봇·산업용 로봇·Vision AI를 활용한 제조공정 로봇자동화</p><div class="img-banner cutbox"><img src="images/products/cut/10.png" alt="로봇 자동화" loading="lazy"></div></div></div>
-              <div class="swiper-slide"><div class="card"><span class="tag">AREA 04</span><p class="title">Smart Factory<br>스마트공장</p><p class="content">MES·데이터 플랫폼·공정 데이터 분석 기반 스마트공장 구축</p><div class="img-banner cutbox"><img src="images/products/cut/12.png" alt="스마트공장" loading="lazy"></div></div></div>
-              <div class="swiper-slide"><div class="card"><span class="tag">AREA 05</span><p class="title">Tech Commercialization<br>기술 사업화</p><p class="content">기술이전·시제품 제작·판로 개척까지 기술을 매출로 연결</p><div class="img-banner cutbox"><img src="images/products/cut/14.png" alt="기술 사업화" loading="lazy"></div></div></div>
-              <div class="swiper-slide"><div class="card"><span class="tag">AREA 06</span><p class="title">Project Management<br>수행관리</p><p class="content">협약·연차보고·최종보고·사업비 관리까지 단절 없는 지원</p><div class="img-banner cutbox"><img src="images/products/cut/8.png" alt="수행관리" loading="lazy"></div></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
 
 </main>
 
-<!-- ================= 푸터 (파나시아 실측: #F9F9F9, pt70, topBtn) ================= -->
+<!-- ================= 푸터 ================= -->
 <div id="footer">
   <a class="topBtn" href="#" aria-label="맨 위로">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V5M5 12l7-7 7 7"/></svg>
@@ -346,7 +393,7 @@
     <div class="inner">
       <div class="ftMain">
         <div class="ftLogo">
-          <img src="images/logo.png" alt="엠아이비 MIB">
+          <img src="images/logo.png" alt="엠아이비">
           <p class="ftState">기술을 사업으로,<br>제조를 혁신으로 연결하겠습니다.</p>
         </div>
         <dl class="ftList">
@@ -356,17 +403,22 @@
             <dd><a href="company/history.html">연혁</a></dd>
             <dd><a href="company/certification.html">인증현황</a></dd>
             <dd><a href="company/facility.html">제조 설비</a></dd>
+            <dd><a href="company/location.html">오시는길</a></dd>
           </div>
           <div>
             <dt>사업분야</dt>
             <dd><a href="business/manufacturing.html">제조 사업부</a></dd>
-            <dd><a href="business/consulting.html">컨설팅 사업부</a></dd>
+            <dd><a href="business/rnd.html">R&amp;D 컨설팅</a></dd>
+            <dd><a href="business/smart.html">스마트 제조</a></dd>
+            <dd><a href="business/robot.html">로봇 자동화</a></dd>
+            <dd><a href="business/cert-consulting.html">기술 인증 컨설팅</a></dd>
           </div>
           <div>
             <dt>고객지원</dt>
             <dd><a href="support/notice.html">공지사항</a></dd>
             <dd><a href="support/archive.html">자료실</a></dd>
             <dd><a href="support/contact.html">온라인 문의</a></dd>
+            <dd><a href="news/list.html">소식</a></dd>
           </div>
         </dl>
       </div>
@@ -375,16 +427,13 @@
         경북 구미시 수출대로 152, 세원테크노밸리 316호 · TEL 054-463-8230 · E-MAIL aircraft27@naver.com
       </div>
       <div class="copyright">
-        <p>COPYRIGHT © MIB CO. ALL RIGHT RESERVED</p>
-        <p>MIB · Mecha Innovation Business</p>
+        <p>COPYRIGHT © 엠아이비. ALL RIGHT RESERVED</p>
+        <p>Mecha Innovation Business</p>
       </div>
     </div>
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
