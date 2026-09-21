@@ -277,16 +277,25 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .whyList a:hover { color: var(--point-text); padding-left: 14px; }
 .whyList a:hover::after { color: var(--point-text); transform: translateX(4px); }
 
-/* ---------- 산업 분야 ---------- */
-.indGrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+/* ---------- 산업 분야 (3×2 이미지 카드) ---------- */
+.indGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .indCard {
+  display: flex; flex-direction: column; overflow: hidden;
   border: 1px solid var(--gray-200); border-radius: var(--card-radius); background: #fff;
-  padding: 30px 22px; text-align: center;
   transition: transform .25s, box-shadow .25s;
 }
 .indCard:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(10,24,38,.09); }
-.indCard .no { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--gray-500); }
-.indCard h3 { font-size: 20px; font-weight: 800; margin: 10px 0 4px; }
+.indCard .thumb {
+  aspect-ratio: 3 / 2; background: var(--bg-soft); overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  border-bottom: 1px dashed #c6cdd4; color: var(--gray-500); font-size: 14px; font-weight: 600;
+}
+.indCard .thumb:has(img) { border-bottom: 0; }
+.indCard .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.indCard:hover .thumb img { transform: scale(1.05); }
+.indCard .body { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 20px 24px 22px; }
+.indCard h3 { font-size: 20px; font-weight: 800; margin: 0; transition: color .25s; }
+.indCard:hover h3 { color: var(--point-text); }
 .indCard .en { font-size: 12px; letter-spacing: .08em; color: var(--gray-500); text-transform: uppercase; }
 
 /* ---------- 연혁 (제조/컨설팅 색 구분) ---------- */
@@ -368,7 +377,6 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 
 @media (max-width: 1200px) {
   .consultGrid { grid-template-columns: repeat(2, 1fr); }
-  .indGrid { grid-template-columns: repeat(3, 1fr); }
   .about__grid, .whyGrid { grid-template-columns: 1fr; gap: 48px; }
   .histWrap { grid-template-columns: 1fr; gap: 36px; }
   .histIntro { position: static; }
