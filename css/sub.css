@@ -18,7 +18,7 @@
 }
 .subMain .subTitle { color: #fff; }
 .subMain .subTitle .en { display: block; font-family: inherit; font-size: 16px; letter-spacing: .1em; opacity: .7; margin-bottom: 10px; text-transform: uppercase; }
-.subMain .subTitle .ko { font-size: 30px; font-weight: 700; }
+.subMain .subTitle .ko { font-size: clamp(34px, 3vw, 44px); font-weight: 800; letter-spacing: -0.02em; }
 
 /* 실측: 비주얼 아래 바 — 좌 dep2 타이틀 45/800, 우 탭 16/600 */
 .subMainTab {
@@ -35,7 +35,7 @@
 /* ---------- 본문 공통 ---------- */
 .subContent { padding: 90px 0 140px; }
 .sec { width: var(--container); max-width: calc(100% - 48px); margin: 0 auto; }
-.sec + .sec { margin-top: 120px; }
+.sec + .sec { margin-top: var(--sec-pad, 120px); }
 /* 실측: 섹션 소제목 24/700 포인트 */
 .t5 { font-size: 24px; font-weight: 700; color: var(--point-text); margin-bottom: 18px; }
 .sec .lead { font-size: 18px; color: var(--gray-600); line-height: 1.7; max-width: 900px; }
