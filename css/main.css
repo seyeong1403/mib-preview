@@ -141,69 +141,40 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .allMenuWrap .closeBtn::before { transform: rotate(45deg); }
 .allMenuWrap .closeBtn::after { transform: rotate(-45deg); }
 
-/* ---------- 스플릿 히어로 (제조 | 컨설팅 분할, 클릭 시 각 사업부 이동) ---------- */
-.splitHero {
-  margin-top: var(--header-h);
-  display: grid; grid-template-columns: 1fr 1fr;
+/* ---------- 히어로 (단일 풀 히어로 + 사업부 카드) ---------- */
+.heroSingle {
+  position: relative; margin-top: var(--header-h);
   min-height: calc(100vh - var(--header-h));
+  display: flex; align-items: center; overflow: hidden; color: #fff;
 }
-.splitHero .panel {
-  position: relative; overflow: hidden; display: flex; align-items: flex-end;
-  padding: 72px 64px; min-height: 560px; color: #fff;
-}
-.splitHero .panel .bg {
-  position: absolute; inset: 0; background-size: cover; background-position: center;
-  transition: transform .6s cubic-bezier(.22,.61,.36,1);
-}
-.splitHero .panel:hover .bg { transform: scale(1.04); }
-.splitHero .panel::after {
+.heroSingle .bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.heroSingle .bg--consult { opacity: 0; transition: opacity .6s ease; }
+.heroSingle:has(.hc--consult:hover) .bg--consult { opacity: 1; }
+.heroSingle::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(200deg, rgba(6,15,26,.18) 0%, rgba(6,15,26,.74) 88%);
-  transition: background .4s;
+  background: linear-gradient(100deg, rgba(6,15,26,.82) 12%, rgba(6,15,26,.45) 55%, rgba(6,15,26,.25) 100%);
 }
-.splitHero .panel:hover::after {
-  background: linear-gradient(200deg, rgba(6,15,26,.08) 0%, rgba(6,15,26,.66) 88%);
+.heroSingle .inner {
+  position: relative; z-index: 2;
+  width: var(--container); max-width: calc(100% - 48px); margin: 0 auto; padding: 90px 0;
 }
-.splitHero .panel .cont { position: relative; z-index: 2; max-width: 520px; }
-.splitHero .panel .label {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 15px; font-weight: 700; letter-spacing: .04em;
-  padding: 8px 18px; border-radius: 999px; margin-bottom: 22px;
+.heroSingle .eyebrow { font-size: 16px; font-weight: 700; color: var(--point-on-dark); margin-bottom: 18px; letter-spacing: .02em; }
+.heroSingle h2 { font-size: clamp(40px, 4.2vw, 64px); font-weight: 800; line-height: 1.22; letter-spacing: -0.02em; }
+.heroSingle .sub { margin-top: 22px; font-size: 18px; line-height: 1.75; color: rgba(255,255,255,.82); }
+.heroCards { display: flex; gap: 16px; margin-top: 52px; flex-wrap: wrap; }
+.hc {
+  flex: 0 1 340px; border-radius: var(--card-radius); padding: 26px 28px; color: #fff;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(10px);
+  transition: background .3s, transform .25s, border-color .3s;
 }
-.splitHero .panel--mfg .label { background: var(--mfg); }
-.splitHero .panel--consult .label { background: var(--consult); }
-.splitHero .panel h2 { font-size: clamp(30px, 2.6vw, 44px); font-weight: 800; line-height: 1.25; margin-bottom: 14px; }
-.splitHero .panel p { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,.86); margin-bottom: 28px; }
-.splitHero .panel .go {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 16px; font-weight: 700; color: #fff;
-  border: 1.5px solid rgba(255,255,255,.7); border-radius: 999px; padding: 12px 28px;
-  transition: background .25s, border-color .25s;
-}
-.splitHero .panel:hover .go { background: rgba(255,255,255,.14); border-color: #fff; }
-.splitHero .panel .go svg { transition: transform .25s; }
-.splitHero .panel:hover .go svg { transform: translateX(4px); }
-/* 이미지 삽입 예정 슬롯 (컨설팅) */
-.splitHero .panel .bg.slot {
-  background: #10202e; display: flex; align-items: center; justify-content: center;
-}
-.imgSlotTag {
-  position: absolute; top: 20px; right: 20px; z-index: 3;
-  font-size: 13px; font-weight: 600; color: rgba(255,255,255,.85);
-  border: 1px dashed rgba(255,255,255,.5); border-radius: 999px; padding: 6px 14px;
-  background: rgba(6,15,26,.35);
-}
-
-/* 히어로 하단 공통 카피 밴드 (스테이트먼트 — 레퍼런스 110) */
-.heroCopy { border-bottom: 1px solid var(--gray-200); }
-.heroCopy .inner {
-  width: var(--container); max-width: calc(100% - 48px); margin: 0 auto;
-  display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
-  padding: 44px 0; flex-wrap: wrap;
-}
-.heroCopy .copy { font-size: clamp(22px, 2vw, 30px); font-weight: 800; letter-spacing: -0.01em; }
-.heroCopy .copy strong { color: var(--point-text); font-weight: 800; }
-.heroCopy .keywords { font-size: 15px; color: var(--gray-500); }
+.hc:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.45); transform: translateY(-4px); }
+.hc .label { display: inline-block; font-size: 13px; font-weight: 700; padding: 5px 13px; border-radius: 999px; margin-bottom: 14px; }
+.hc--mfg .label { background: var(--mfg); }
+.hc--consult .label { background: var(--consult); }
+.hc strong { display: block; font-size: 21px; font-weight: 800; margin-bottom: 16px; }
+.hc .go { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: rgba(255,255,255,.85); }
+.hc .go svg { transition: transform .25s; }
+.hc:hover .go svg { transform: translateX(4px); }
 
 /* ---------- 공통 섹션 ---------- */
 .section { padding: var(--sec-pad) 0; }
@@ -266,7 +237,9 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
   border-bottom: 1px dashed #c6cdd4; color: var(--gray-500); font-size: 14px; font-weight: 600;
 }
-.consultCard .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.consultCard .thumb:has(img) { border-bottom: 0; position: relative; overflow: hidden; }
+.consultCard .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.consultCard:hover .thumb img { transform: scale(1.05); }
 .consultCard .body { padding: 24px 26px 28px; flex: 1; }
 .consultCard .no { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--consult); }
 .consultCard h3 { font-size: 21px; font-weight: 800; margin: 6px 0 10px; }
@@ -315,8 +288,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
   border-bottom: 1px dashed #c6cdd4; color: var(--gray-500); font-size: 14px; font-weight: 600;
 }
-.indCard .thumb:has(img) { border-bottom: 0; }
-.indCard .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.indCard .thumb:has(img) { border-bottom: 0; position: relative; }
+.indCard .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
 .indCard:hover .thumb img { transform: scale(1.05); }
 .indCard .body { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 20px 24px 22px; }
 .indCard h3 { font-size: 20px; font-weight: 800; margin: 0; transition: color .25s; }
@@ -416,14 +389,15 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   .mobileMenuBtn { display: block; }
   #header { height: 72px; }
   #header .logo img { height: 32px; }
-  .splitHero { margin-top: 72px; grid-template-columns: 1fr; min-height: 0; }
-  .splitHero .panel { min-height: 420px; padding: 40px 24px; }
+  .heroSingle { margin-top: 72px; min-height: 620px; }
+  .heroSingle .inner { padding: 64px 0; }
+  .heroSingle .sub br { display: none; }
+  .heroCards { margin-top: 36px; }
+  .hc { flex: 1 1 100%; }
   .allMenuWrap .allMenu { flex-direction: column; gap: 30px; padding: 0 28px; max-height: 80vh; overflow-y: auto; }
   .allMenuWrap .dep1 { font-size: 22px; margin-bottom: 10px; }
   .section { padding: 76px 0; }
   .txt2 { font-size: 30px; }
-  .heroCopy .inner { padding: 18px 0; }
-  .heroCopy .copy { font-size: 16px; }
   .matCard { width: 300px; }
   .matCard .img { height: 160px; }
   .consultGrid { grid-template-columns: 1fr; }
