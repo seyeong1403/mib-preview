@@ -202,7 +202,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 
 /* ---------- 제조 사업부 섹션 (라이트 · 소재 마퀴) ---------- */
 .mfgSec .bluetext { color: var(--mfg); }
-.matWrap { position: relative; }
+.matWrap { position: relative; padding: 0 72px; }
 .matArrow {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
   width: 48px; height: 48px; border-radius: 50%;
@@ -211,9 +211,9 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   box-shadow: var(--shadow-1); cursor: pointer;
   transition: background .25s, color .25s, border-color .25s, transform .2s;
 }
-/* 컨테이너 밖 여백 중앙 배치: (뷰포트-컨테이너)/2 여백의 가운데 */
-.matArrow.prev { left: calc((100% - 100vw) / 4 - 24px); }
-.matArrow.next { right: calc((100% - 100vw) / 4 - 24px); }
+/* 슬라이더 양옆 전용 공간(72px)에 배치 — 어떤 화면 폭에서도 카드와 안 겹침 */
+.matArrow.prev { left: 0; }
+.matArrow.next { right: 0; }
 .matArrow:hover { background: var(--point-fill); border-color: var(--point-fill); color: #fff; }
 .matArrow:active { transform: translateY(-50%) scale(.94); }
 .matMarquee { overflow: hidden; }
@@ -415,9 +415,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   .matCard .img { height: 160px; }
   .consultGrid { grid-template-columns: 1fr; }
   .indGrid { grid-template-columns: repeat(2, 1fr); }
+  .matWrap { padding: 0 52px; }
   .matArrow { width: 42px; height: 42px; }
-  .matArrow.prev { left: 6px; }
-  .matArrow.next { right: 6px; }
   .whyList a { font-size: 17px; padding: 18px 4px; }
   .histYears .year { font-size: 30px; }
   .histYears > li + li { margin-top: 36px; }
