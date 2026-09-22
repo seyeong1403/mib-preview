@@ -211,8 +211,9 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   box-shadow: var(--shadow-1); cursor: pointer;
   transition: background .25s, color .25s, border-color .25s, transform .2s;
 }
-.matArrow.prev { left: -8px; }
-.matArrow.next { right: -8px; }
+/* 컨테이너 밖 여백 중앙 배치: (뷰포트-컨테이너)/2 여백의 가운데 */
+.matArrow.prev { left: calc((100% - 100vw) / 4 - 24px); }
+.matArrow.next { right: calc((100% - 100vw) / 4 - 24px); }
 .matArrow:hover { background: var(--point-fill); border-color: var(--point-fill); color: #fff; }
 .matArrow:active { transform: translateY(-50%) scale(.94); }
 .matMarquee { overflow: hidden; }
