@@ -6,11 +6,12 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- 소재 마퀴 (세트 복제 + linear infinite, 호버 시 정지) ---------- */
+  /* ---------- 소재 마퀴 (세트 복제 + rAF 구동: 자동 흐름 + 호버 정지 + 화살표 점프) ---------- */
   var GAP = 24, SPEED = 60; /* px/s */
-  document.querySelectorAll('.matMarquee').forEach(function (el) {
-    var wrap = el.querySelector('.swiper-wrapper');
-    if (!wrap || reduceMotion) return;
+  document.querySelectorAll('.matWrap').forEach(function (box) {
+    var el = box.querySelector('.matMarquee');
+    var wrap = el && el.querySelector('.swiper-wrapper');
+    if (!wrap) return;
     var setW = wrap.scrollWidth;
     if (!setW) return;
     setW += GAP;
@@ -23,9 +24,41 @@
         wrap.appendChild(c);
       });
     }
-    wrap.style.setProperty('--set-w', setW + 'px');
-    wrap.style.setProperty('--marquee-dur', (setW / SPEED) + 's');
-    wrap.classList.add('marquee');
+
+    var pos = 0, hover = false, tween = null, last = null;
+    var step = (originals[0] ? originals[0].getBoundingClientRect().width : 430) + GAP;
+    function apply() {
+      wrap.style.transform = 'translateX(' + (-((pos % setW) + setW) % setW) + 'px)';
+    }
+    function tick(t) {
+      if (last !== null && !hover && !tween && !reduceMotion) {
+        pos += SPEED * Math.min(t - last, 100) / 1000;
+        apply();
+      }
+      if (tween) {
+        var k = Math.min((t - tween.t0) / 300, 1);
+        var e = 1 - Math.pow(1 - k, 3); /* ease-out */
+        pos = tween.from + (tween.to - tween.from) * e;
+        apply();
+        if (k >= 1) tween = null;
+      }
+      last = t;
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    el.addEventListener('mouseenter', function () { hover = true; });
+    el.addEventListener('mouseleave', function () { hover = false; });
+
+    function jump(dir) {
+      var from = tween ? tween.to : pos;
+      if (reduceMotion) { pos = from + dir * step; tween = null; apply(); return; }
+      tween = { from: pos, to: from + dir * step, t0: performance.now() };
+    }
+    var prev = box.querySelector('.matArrow.prev');
+    var next = box.querySelector('.matArrow.next');
+    if (prev) prev.addEventListener('click', function () { jump(-1); });
+    if (next) next.addEventListener('click', function () { jump(1); });
   });
 
   /* ---------- 전체메뉴 오버레이 ---------- */
