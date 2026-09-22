@@ -249,10 +249,9 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .consultCard .more svg { transition: transform .25s; }
 
 /* ---------- Why MIB (정적) ---------- */
-.whyGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.whyImgs { display: grid; gap: 12px; }
-.whyImgs li { background: var(--bg-soft); height: 230px; border-radius: var(--card-radius); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.whyImgs li img { max-width: 62%; max-height: 74%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 16px 18px rgba(10,24,38,.15)); }
+.whyGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: stretch; }
+.whyImgs li { height: 100%; min-height: 440px; border-radius: var(--card-radius); overflow: hidden; }
+.whyImgs li img { width: 100%; height: 100%; object-fit: cover; }
 .whyList { margin-top: 40px; }
 .whyList li { border-top: 1px solid #CBD8E2; }
 .whyList li:last-child { border-bottom: 1px solid #CBD8E2; }
