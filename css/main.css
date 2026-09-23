@@ -258,6 +258,14 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .consultCard .no { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--consult); }
 .consultCard h3 { font-size: 21px; font-weight: 800; margin: 6px 0 10px; }
 .consultCard p { font-size: 15px; color: var(--gray-600); line-height: 1.65; }
+.consultCard .items li {
+  font-size: 14.5px; color: var(--gray-600); line-height: 1.55;
+  padding: 3px 0 3px 13px; position: relative;
+}
+.consultCard .items li::before {
+  content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--consult);
+}
 .consultCard .more { margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--consult); display: inline-flex; align-items: center; gap: 6px; }
 .consultCard:hover .more svg { transform: translateX(3px); }
 .consultCard .more svg { transition: transform .25s; }
