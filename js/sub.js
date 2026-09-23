@@ -43,7 +43,7 @@
     var items = facCards.map(function (card) {
       var img = card.querySelector('.img img');
       return {
-        src: img ? img.getAttribute('src') : '',
+        src: img ? img.getAttribute('src').replace('/facility/', '/facility/2x/') : '',
         name: (card.querySelector('.name') || {}).textContent || '',
         spec: (card.querySelector('.spec') || {}).textContent || ''
       };

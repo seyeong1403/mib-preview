@@ -123,9 +123,9 @@
   opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s;
 }
 .lightbox.open { opacity: 1; visibility: visible; }
-.lightbox .lb-box { max-width: min(90vw, 760px); text-align: center; }
-.lightbox .lb-img { background: #fff; border-radius: var(--card-radius); padding: 28px; }
-.lightbox .lb-img img { max-width: 100%; max-height: min(62vh, 560px); width: auto; height: auto; margin: 0 auto; object-fit: contain; }
+.lightbox .lb-box { width: min(92vw, 1060px); text-align: center; }
+.lightbox .lb-img { background: #fff; border-radius: var(--card-radius); padding: 32px; display: flex; align-items: center; justify-content: center; min-height: min(66vh, 620px); }
+.lightbox .lb-img img { max-width: 100%; max-height: min(66vh, 620px); width: auto; height: auto; object-fit: contain; }
 .lightbox .lb-name { margin-top: 18px; font-size: 20px; font-weight: 800; color: #fff; }
 .lightbox .lb-spec { margin-top: 4px; font-size: 15px; color: rgba(255,255,255,.72); }
 .lightbox .lb-close { position: absolute; top: 28px; right: 32px; width: 44px; height: 44px; color: #fff; }
