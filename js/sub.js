@@ -59,7 +59,7 @@
       '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>' +
       '<button class="lb-arrow next" type="button" aria-label="\ub2e4\uc74c \uc124\ube44">' +
       '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>' +
-      '<div class="lb-box"><div class="lb-img"><img src="" alt=""></div>' +
+      '<div class="lb-box"><div class="lb-img"><img alt=""></div>' +
       '<p class="lb-name"></p><p class="lb-spec"></p></div>';
     document.body.appendChild(lb);
     var lbImg = lb.querySelector('.lb-img img');
