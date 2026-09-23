@@ -368,6 +368,10 @@
 .certCons .cc-col > ul > li { font-size: 15.5px; line-height: 1.8; color: var(--gray-600); padding: 4px 0 4px 16px; position: relative; }
 .certCons .cc-col > ul > li::before { content: ""; position: absolute; left: 0; top: 15px; width: 7px; height: 2px; background: var(--consult); }
 .ccNote { margin-top: 16px; font-size: 14px; color: var(--gray-500); }
+.ccTable { width: 100%; margin-top: 18px; border-collapse: collapse; font-size: 14.5px; }
+.ccTable caption { text-align: left; font-size: 14px; font-weight: 700; color: var(--gray-600); padding-bottom: 8px; }
+.ccTable th { background: var(--bg-soft, #f7f8fa); font-weight: 700; }
+.ccTable th, .ccTable td { border: 1px solid #e4e8ec; padding: 9px 12px; text-align: center; color: var(--gray-600); }
 
 /* 산업 분야 상세 */
 /* 진행 프로세스 — 기업/엠아이비 수행 업무 */
