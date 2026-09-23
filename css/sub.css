@@ -104,6 +104,52 @@
 .facCard .name { margin-top: 16px; font-size: 17px; font-weight: 800; }
 .facCard .spec { margin-top: 4px; font-size: 14px; color: var(--gray-600); }
 
+/* 설비 확대 보기 */
+.zoomNote { margin-top: 14px; font-size: 15px; font-weight: 600; color: var(--point-text); display: inline-flex; align-items: center; gap: 7px; }
+.facCard[data-zoom] { cursor: zoom-in; position: relative; transition: transform .25s, box-shadow .25s; }
+.facCard[data-zoom]:hover { transform: translateY(-4px); box-shadow: var(--shadow-1, 0 10px 26px rgba(10,24,38,.07)); }
+.facCard[data-zoom]::after {
+  content: ""; position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%;
+  background-color: rgba(10, 24, 38, .55);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'><circle cx='11' cy='11' r='7'/><path d='m21 21-4.3-4.3M11 8v6M8 11h6'/></svg>");
+  background-size: 16px; background-position: center; background-repeat: no-repeat;
+  transition: background-color .25s;
+}
+.facCard[data-zoom]:hover::after { background-color: var(--point-fill); }
+
+.lightbox {
+  position: fixed; inset: 0; z-index: 3000; background: rgba(6, 15, 26, .86);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s;
+}
+.lightbox.open { opacity: 1; visibility: visible; }
+.lightbox .lb-box { max-width: min(90vw, 760px); text-align: center; }
+.lightbox .lb-img { background: #fff; border-radius: var(--card-radius); padding: 28px; }
+.lightbox .lb-img img { max-width: 100%; max-height: min(62vh, 560px); width: auto; height: auto; margin: 0 auto; object-fit: contain; }
+.lightbox .lb-name { margin-top: 18px; font-size: 20px; font-weight: 800; color: #fff; }
+.lightbox .lb-spec { margin-top: 4px; font-size: 15px; color: rgba(255,255,255,.72); }
+.lightbox .lb-close { position: absolute; top: 28px; right: 32px; width: 44px; height: 44px; color: #fff; }
+.lightbox .lb-close::before, .lightbox .lb-close::after {
+  content: ""; position: absolute; left: 8px; right: 8px; top: 50%; height: 2px; background: #fff;
+}
+.lightbox .lb-close::before { transform: rotate(45deg); }
+.lightbox .lb-close::after { transform: rotate(-45deg); }
+.lightbox .lb-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px; border-radius: 50%; color: #fff;
+  border: 1px solid rgba(255,255,255,.45);
+  display: flex; align-items: center; justify-content: center;
+  transition: background .25s, border-color .25s;
+}
+.lightbox .lb-arrow:hover { background: var(--point-fill); border-color: var(--point-fill); }
+.lightbox .lb-arrow.prev { left: 28px; }
+.lightbox .lb-arrow.next { right: 28px; }
+@media (max-width: 1023px) {
+  .lightbox .lb-arrow.prev { left: 10px; }
+  .lightbox .lb-arrow.next { right: 10px; }
+  .lightbox .lb-close { top: 14px; right: 14px; }
+}
+
 /* ---------- 공정 Process ---------- */
 .processGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; counter-reset: step; }
 .processGrid figure { position: relative; }
