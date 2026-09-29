@@ -81,7 +81,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   width: var(--container); max-width: calc(100% - 48px); margin: 0 auto; height: 100%;
   display: flex; justify-content: space-between; align-items: center;
 }
-#header .logo img { height: 40px; width: auto; }
+#header .logo img { height: 54px; width: auto; } /* 2차수정 s1: PC 로고 확대 */
 
 #gnb > ul { display: flex; height: var(--header-h); }
 #gnb > ul > li { position: relative; }
@@ -162,17 +162,18 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .heroSingle h2 { font-size: clamp(40px, 4.2vw, 64px); font-weight: 800; line-height: 1.22; letter-spacing: -0.02em; }
 .heroSingle .sub { margin-top: 22px; font-size: 18px; line-height: 1.75; color: rgba(255,255,255,.82); }
 .heroCards { display: flex; gap: 16px; margin-top: 52px; flex-wrap: wrap; }
+/* 2차수정 s1: PC에서 카드 글자 확대 */
 .hc {
-  flex: 0 1 340px; border-radius: var(--card-radius); padding: 26px 28px; color: #fff;
+  flex: 0 1 400px; border-radius: var(--card-radius); padding: 30px 34px; color: #fff;
   background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(10px);
   transition: background .3s, transform .25s, border-color .3s;
 }
 .hc:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.45); transform: translateY(-4px); }
-.hc .label { display: inline-block; font-size: 13px; font-weight: 700; padding: 5px 13px; border-radius: 999px; margin-bottom: 14px; }
+.hc .label { display: inline-block; font-size: 15px; font-weight: 700; padding: 6px 15px; border-radius: 999px; margin-bottom: 16px; }
 .hc--mfg .label { background: var(--mfg); }
 .hc--consult .label { background: var(--consult); }
-.hc strong { display: block; font-size: 21px; font-weight: 800; margin-bottom: 16px; }
-.hc .go { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: rgba(255,255,255,.85); }
+.hc strong { display: block; font-size: 27px; font-weight: 800; margin-bottom: 18px; }
+.hc .go { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; color: rgba(255,255,255,.85); }
 .hc .go svg { transition: transform .25s; }
 .hc:hover .go svg { transform: translateX(4px); }
 
@@ -183,22 +184,6 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .secHead { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 52px; flex-wrap: wrap; }
 .secHead .bluetext { margin-bottom: 8px; }
 .secHead.consult .bluetext { color: var(--consult); }
-
-/* ---------- 소개(About) ---------- */
-.about__grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 80px; align-items: center; }
-.about__body .txt3 { margin-top: 20px; max-width: 52ch; }
-.about__body .add-button { margin-top: 34px; }
-.aboutSteps { display: grid; gap: 14px; }
-.aboutSteps li {
-  display: flex; align-items: center; gap: 22px;
-  background: #fff; border: 1px solid var(--gray-200); border-radius: var(--card-radius);
-  padding: 22px 30px;
-  transition: transform .25s, box-shadow .25s;
-}
-.aboutSteps li:hover { transform: translateY(-3px); box-shadow: var(--shadow-1); }
-.aboutSteps .num { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--gray-500); border: 1px solid var(--gray-200); border-radius: 999px; padding: 5px 12px; flex-shrink: 0; }
-.aboutSteps .ko { font-size: 19px; font-weight: 700; }
-.aboutSteps .en { margin-left: auto; font-size: 14px; color: var(--gray-500); letter-spacing: .05em; }
 
 /* ---------- 제조 사업부 섹션 (라이트 · 소재 마퀴) ---------- */
 .mfgSec .bluetext { color: var(--mfg); }
@@ -296,8 +281,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .whyList a:hover .no { color: var(--point-text); }
 .whyList a:hover .arr { background: var(--point-fill); border-color: var(--point-fill); color: #fff; transform: translateX(4px); }
 
-/* ---------- 산업 분야 (3×2 이미지 카드) ---------- */
-.indGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* ---------- 산업 분야 (2차수정 s4: 6열 컴팩트 카드 — 메인 비중 축소) ---------- */
+.indGrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
 .indCard {
   display: flex; flex-direction: column; overflow: hidden;
   border: 1px solid var(--gray-200); border-radius: var(--card-radius); background: #fff;
@@ -312,10 +297,9 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .indCard .thumb:has(img) { border-bottom: 0; position: relative; }
 .indCard .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
 .indCard:hover .thumb img { transform: scale(1.05); }
-.indCard .body { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 20px 24px 22px; }
-.indCard h3 { font-size: 20px; font-weight: 800; margin: 0; transition: color .25s; }
-.indCard:hover h3 { color: var(--point-text); }
-.indCard .en { font-size: 12px; letter-spacing: .08em; color: var(--gray-500); text-transform: uppercase; }
+.indCard .body { padding: 14px 18px 16px; }
+.indCard h3 { font-size: 17px; font-weight: 800; margin: 0; }
+.indCard .en { display: block; margin-top: 2px; font-size: 11px; letter-spacing: .06em; color: var(--gray-500); text-transform: uppercase; }
 
 /* ---------- 연혁 (제조/컨설팅 색 구분) ---------- */
 .histWrap { display: grid; grid-template-columns: 440px 1fr; gap: 90px; align-items: start; }
@@ -400,7 +384,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 
 @media (max-width: 1200px) {
   .consultGrid { grid-template-columns: repeat(2, 1fr); }
-  .about__grid, .whyGrid { grid-template-columns: 1fr; gap: 48px; }
+  .whyGrid { grid-template-columns: 1fr; gap: 48px; }
+  .indGrid { grid-template-columns: repeat(3, 1fr); }
   .histWrap { grid-template-columns: 1fr; gap: 36px; }
   .histIntro { position: static; }
 }
@@ -414,7 +399,10 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   .heroSingle .inner { padding: 64px 0; }
   .heroSingle .sub br { display: none; }
   .heroCards { margin-top: 36px; }
-  .hc { flex: 1 1 100%; }
+  .hc { flex: 1 1 100%; padding: 24px 26px; }
+  .hc .label { font-size: 13px; padding: 5px 13px; margin-bottom: 13px; }
+  .hc strong { font-size: 21px; margin-bottom: 14px; }
+  .hc .go { font-size: 14px; }
   .allMenuWrap .allMenu { flex-direction: column; gap: 30px; padding: 0 28px; max-height: 80vh; overflow-y: auto; }
   .allMenuWrap .dep1 { font-size: 22px; margin-bottom: 10px; }
   .section { padding: 76px 0; }
@@ -422,7 +410,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   .matCard { width: 300px; }
   .matCard .img { height: 160px; }
   .consultGrid { grid-template-columns: 1fr; }
-  .indGrid { grid-template-columns: repeat(2, 1fr); }
+  .indGrid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .matWrap { padding: 0 52px; }
   .matArrow { width: 42px; height: 42px; }
   .whyList a { font-size: 17px; padding: 18px 4px; }

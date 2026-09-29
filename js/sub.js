@@ -38,7 +38,10 @@
   });
 
   /* ---------- 설비 이미지 확대 보기 (라이트박스) ---------- */
-  var facCards = Array.prototype.slice.call(document.querySelectorAll('.facCard'));
+  /* 사진 없는 슬롯 카드(.facSlot 등)는 확대 대상에서 제외 */
+  var facCards = Array.prototype.slice.call(document.querySelectorAll('.facCard')).filter(function (card) {
+    return card.querySelector('.img img');
+  });
   if (facCards.length) {
     var items = facCards.map(function (card) {
       var img = card.querySelector('.img img');
