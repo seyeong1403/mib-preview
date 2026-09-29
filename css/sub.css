@@ -374,10 +374,13 @@
   background: rgba(255,255,255,.28);
 }
 .procTimeline li:last-child::after { display: none; }
+/* 행 전환은 원·라벨을 피해 바깥으로 도는 둥근 ㄱ자 곡선(원 오른쪽→아래→2행 원 오른쪽) */
 .procTimeline.cols5 li:nth-child(5)::after,
 .procTimeline.cols4 li:nth-child(4)::after {
-  left: 50%; right: auto; width: 2px; height: calc(100% + 40px); top: 31px;
-  background: linear-gradient(rgba(255,255,255,.28), rgba(53,214,160,.55));
+  left: calc(50% + 31px); right: auto; width: 58px; top: 31px; height: calc(100% + 40px);
+  background: none;
+  border: 2px solid rgba(255,255,255,.28); border-left: 0;
+  border-radius: 0 29px 29px 0;
 }
 /* 2행 역순 배치 */
 .procTimeline.cols5 li:nth-child(n+6) { grid-row: 2; }
@@ -607,6 +610,7 @@
   .procTimeline.cols4 li:nth-child(4)::after {
     display: block; left: 25px; right: auto; width: 2px; top: 52px; height: 30px;
     background: rgba(255,255,255,.28);
+    border: 0; border-radius: 0; /* 데스크톱 ㄱ자 곡선 리셋 */
   }
   /* 데스크톱 nth 규칙보다 구체성을 높여 마지막 노드 선 확실히 제거 */
   .procTimeline li:last-child::after,
