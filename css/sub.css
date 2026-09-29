@@ -396,8 +396,7 @@
 .procTimeline.cols4 li:nth-child(n+5)::after {
   left: calc(-50% + 31px); right: calc(50% + 31px);
 }
-.procTimeline.cols5 li:nth-child(6)::after,
-.procTimeline.cols4 li:nth-child(5)::after { display: none; }
+/* 주의: 2행 첫 노드(06/05)의 왼쪽 선이 곧 06–07(05–06) 연결선 — 끄면 안 됨(세영 지적으로 복구) */
 
 /* ---- 기업/엠아이비 수행 업무 — 유리 카드 2열 ---- */
 .dutyInfo { display: grid; grid-template-columns: 1fr 1.35fr; gap: 18px; margin-top: 38px; }
@@ -603,11 +602,16 @@
   .procTimeline .t { margin-top: 0; }
   .procTimeline li::after,
   .procTimeline.cols5 li:nth-child(n+6)::after,
-  .procTimeline.cols4 li:nth-child(n+5)::after {
+  .procTimeline.cols5 li:nth-child(5)::after,
+  .procTimeline.cols4 li:nth-child(n+5)::after,
+  .procTimeline.cols4 li:nth-child(4)::after {
     display: block; left: 25px; right: auto; width: 2px; top: 52px; height: 30px;
     background: rgba(255,255,255,.28);
   }
-  .procTimeline li:last-child::after { display: none; }
+  /* 데스크톱 nth 규칙보다 구체성을 높여 마지막 노드 선 확실히 제거 */
+  .procTimeline li:last-child::after,
+  .procTimeline.cols5 li:last-child::after,
+  .procTimeline.cols4 li:last-child::after { display: none; }
   .dutyInfo { grid-template-columns: 1fr; }
   .stageCols { grid-template-columns: 1fr; gap: 30px; }
   .sg-col:not(:last-child)::after {
